@@ -1,0 +1,25 @@
+{
+  "name": "_/_s",
+  "description": "",
+  "type": "wordpress-theme",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "WordPress",
+    "Themes"
+  ],
+  "require": {
+    "php": ">=5.6"
+  },
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.6.2",
+    "wptrt/wpthemereview": "^0.2.1",
+    "lucatume/wp-browser": "^2.4",
+    "codeception/module-asserts": "^1.0",
+    "codeception/module-phpbrowser": "^1.0",
+    "codeception/module-webdriver": "^1.0",
+    "codeception/module-db": "^1.0",
+    "codeception/module-filesystem": "^1.0",
+    "codeception/module-cli": "^1.0",
+    "codeception/util-universalframework": "^1.0"
+  }
+}

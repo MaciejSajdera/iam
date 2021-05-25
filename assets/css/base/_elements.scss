@@ -1,0 +1,211 @@
+/* Inherit box-sizing to more easily change it's value on a component level.
+@link http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+body {
+	background: $color__background-body; // Fallback for when there is no custom background color defined.
+}
+
+blockquote,
+q {
+	quotes: "" "";
+
+	&::before,
+	&::after {
+		content: "";
+	}
+}
+
+hr {
+	background-color: $color__background-hr;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+}
+
+img {
+	height: auto; // Make sure images are scaled correctly.
+	max-width: 100%; // Adhere to container width.
+}
+
+figure {
+	margin: 1em 0; // Extra wide images within figure tags don't overflow the content area.
+}
+
+/* LINKS */
+a {
+	color: $color__link;
+
+	&:visited {
+		color: initial;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: $color__link-hover;
+	}
+
+	&:focus {
+		outline: 0;
+	}
+
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+}
+
+/* LISTS */
+
+ul,
+ol {
+	margin: 0 0 1.5em 3em;
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}
+
+dt {
+	font-weight: 700;
+}
+
+dd {
+	margin: 0 1.5em 1.5em;
+}
+
+/* TABLES */
+
+table {
+	margin: 0 0 1.5em;
+	width: 100%;
+}
+
+.button {
+	cursor: pointer;
+	border-radius: 15px;
+
+	&__cta {
+		height: 48px;
+		line-height: 48px;
+		background-color: $color__custom-red;
+		color: $color__text-white !important;
+		text-transform: uppercase;
+		padding: 0 60px;
+		text-decoration: none;
+		@include fluid-type($min_width, $max_width, 14px, 16px);
+		font-weight: 800;
+		transition: $transition_regular;
+
+		@media screen and (min-width: 992px) {
+			height: 56px;
+			line-height: 56px;
+		}
+
+		@media screen and (max-width: 400px) {
+			padding: 0 30px;
+		}
+
+		&:hover {
+			background-color: darken($color: $color__custom-red, $amount: 10%);
+		}
+	}
+}
+
+.font {
+	&__red {
+		color: $color__custom-red !important;
+		-webkit-text-stroke: 2px $color__custom-red !important;
+	}
+}
+
+.font-outline {
+	&__red {
+		color: transparent !important;
+		-webkit-text-stroke: 2px $color__custom-red !important;
+	}
+}
+
+.contact-icon {
+	width: 48px;
+	height: 48px;
+	border: 1px solid $color__border-light-grey;
+	border-radius: 5px;
+	display: block;
+
+	@media screen and (min-width: 992px) {
+		width: 56px;
+		height: 56px;
+	}
+
+	&__phone {
+		content: url(../dist/svg/phone.svg);
+		padding: 0.75em;
+	}
+
+	&__email {
+		content: url(../dist/svg/envelope.svg);
+		padding: 0.75em;
+	}
+
+	&__instagram {
+		padding: 0.75em;
+		position: relative;
+
+		&__circle {
+			background: url(../dist/svg/circle.svg);
+			background-size: contain;
+			background-repeat: no-repeat;
+			display: block;
+
+			height: 80%;
+			width: 80%;
+			background-position: center;
+			margin: auto;
+		}
+
+		&__small-circle {
+			background: url(../dist/svg/circle-small.svg);
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: contain;
+			height: 6px;
+			width: 6px;
+			display: block;
+			position: absolute;
+			top: 6px;
+			right: 6px;
+		}
+
+		display: flex;
+	}
+
+	&__facebook {
+		content: url(../dist/svg/facebook.svg);
+		padding: 0.75em;
+	}
+
+	&__linkedin {
+		content: url(../dist/svg/linkedin.svg);
+		padding: 0.75em;
+	}
+}
