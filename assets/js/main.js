@@ -9,6 +9,13 @@ window.addEventListener("load", () => {
 	let fullVH = window.innerHeight;
 	document.documentElement.style.setProperty("--vh", `${vh}px`);
 	document.documentElement.style.setProperty("--fullVH", `${fullVH}px`);
+
+	const siteHeader = document.querySelector(".site-header");
+	let siteHeaderHeight = siteHeader.getBoundingClientRect().height;
+	document.documentElement.style.setProperty(
+		"--header-height",
+		`${siteHeaderHeight}px`
+	);
 });
 
 window.addEventListener("resize", () => {
@@ -16,6 +23,13 @@ window.addEventListener("resize", () => {
 	let fullVH = window.innerHeight;
 	document.documentElement.style.setProperty("--vh", `${vh}px`);
 	document.documentElement.style.setProperty("--fullVH", `${fullVH}px`);
+
+	const siteHeader = document.querySelector(".site-header");
+	let siteHeaderHeight = siteHeader.getBoundingClientRect().height;
+	document.documentElement.style.setProperty(
+		"--header-height",
+		`${siteHeaderHeight}px`
+	);
 });
 
 document.addEventListener("DOMContentLoaded", () => {

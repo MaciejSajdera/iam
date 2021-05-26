@@ -116,6 +116,8 @@ table {
 		font-weight: 800;
 		transition: $transition_regular;
 		width: fit-content;
+		min-width: 210px;
+		text-align: center;
 
 		@media screen and (min-width: 992px) {
 			height: 56px;
@@ -142,7 +144,7 @@ table {
 .font-outline {
 	&__red {
 		color: transparent !important;
-		-webkit-text-stroke: 2px $color__custom-red !important;
+		-webkit-text-stroke: 1px $color__custom-red;
 	}
 }
 

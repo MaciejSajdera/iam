@@ -21,10 +21,23 @@ h6 {
 	clear: both;
 }
 
+h1 {
+	@include fluid-type($min_width, $max_width, 32px, 54px);
+	margin: 0 0 0.67em;
+	text-transform: uppercase;
+	line-height: 1em;
+}
+
+h1.smaller-title {
+	@include fluid-type($min_width, $max_width, 27px, 36px);
+	margin: 0 0 0.3em;
+}
+
 /* COPY */
 
 p {
 	margin-bottom: 1.5em;
+	@include fluid-type($min_width, $max_width, 17px, 28px);
 }
 
 dfn,
