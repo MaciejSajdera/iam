@@ -27,6 +27,9 @@ $color__border-abbr: #666;
 
 $color__border-light-grey: rgba(241, 241, 241, 0.67);
 
+/* BOX-SHADOWS */
+$box-shadow_standard: 0 0px 15px 5px #161616, 0 0px 6px 0px #161616;
+
 /* TYPOGRAPHY */
 $font__main: "Nunito Sans", sans-serif;
 $font__code: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
@@ -45,3 +48,11 @@ $break__large: 64.063em;
 /* TRANSITIONS */
 
 $transition_regular: all 0.3s ease-in-out;
+
+:root {
+	--text-multiplied-position-translate: -30px;
+
+	@media screen and (min-width: 992px) {
+		--text-multiplied-position-translate: -34px;
+	}
+}

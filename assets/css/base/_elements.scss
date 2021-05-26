@@ -115,6 +115,7 @@ table {
 		@include fluid-type($min_width, $max_width, 14px, 16px);
 		font-weight: 800;
 		transition: $transition_regular;
+		width: fit-content;
 
 		@media screen and (min-width: 992px) {
 			height: 56px;
@@ -150,7 +151,9 @@ table {
 	height: 48px;
 	border: 1px solid $color__border-light-grey;
 	border-radius: 5px;
-	display: block;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
 	@media screen and (min-width: 992px) {
 		width: 56px;
@@ -158,12 +161,12 @@ table {
 	}
 
 	&__phone {
-		content: url(../dist/svg/phone.svg);
+		// content: url(../dist/svg/phone.svg);
 		padding: 0.75em;
 	}
 
 	&__email {
-		content: url(../dist/svg/envelope.svg);
+		// content: url(../dist/svg/envelope.svg);
 		padding: 0.75em;
 	}
 
@@ -172,10 +175,9 @@ table {
 		position: relative;
 
 		&__circle {
-			background: url(../dist/svg/circle.svg);
-			background-size: contain;
-			background-repeat: no-repeat;
-			display: block;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 
 			height: 80%;
 			width: 80%;
@@ -184,13 +186,12 @@ table {
 		}
 
 		&__small-circle {
-			background: url(../dist/svg/circle-small.svg);
-			background-position: center;
-			background-repeat: no-repeat;
-			background-size: contain;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
 			height: 6px;
 			width: 6px;
-			display: block;
 			position: absolute;
 			top: 6px;
 			right: 6px;
@@ -200,12 +201,19 @@ table {
 	}
 
 	&__facebook {
-		content: url(../dist/svg/facebook.svg);
+		// content: url(../dist/svg/facebook.svg);
 		padding: 0.75em;
 	}
 
 	&__linkedin {
-		content: url(../dist/svg/linkedin.svg);
+		// content: url(../dist/svg/linkedin.svg);
 		padding: 0.75em;
+	}
+}
+
+.text-reveal {
+	&__bottom {
+		opacity: 1 !important;
+		transform: translateY(0) !important;
 	}
 }
