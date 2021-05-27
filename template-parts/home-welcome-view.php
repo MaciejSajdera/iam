@@ -41,4 +41,13 @@ $welcome_view__description = $welcome_view['description'];
         </div>
 
     </div>
+
+    <div class="welcome-view__scroll-down square-box">
+        <div class="wrapper">
+            <div class="chevron"></div>
+            <div class="chevron"></div>
+            <div class="chevron"></div>
+        </div>
+    </div>
+
 </section>

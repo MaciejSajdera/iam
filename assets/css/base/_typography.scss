@@ -22,7 +22,7 @@ h6 {
 }
 
 h1 {
-	@include fluid-type($min_width, $max_width, 32px, 54px);
+	@include fluid-type($min_width, $max_width, 36px, 54px);
 	margin: 0 0 0.67em;
 	text-transform: uppercase;
 	line-height: 1em;

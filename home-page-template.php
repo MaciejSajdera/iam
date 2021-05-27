@@ -14,6 +14,9 @@ get_header();
 
 		<?php get_template_part( 'template-parts/home-welcome-view', 'page' ); ?>
 
+		<?php get_template_part( 'template-parts/home-advantages', 'page' ); ?>
+
+		<?php get_template_part( 'template-parts/home-center-point', 'page' ); ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

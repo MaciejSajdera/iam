@@ -1,8 +1,8 @@
-/**
- * Main JavaScript file.
- */
+import smoothscroll from "smoothscroll-polyfill";
 import skipLinkFocus from "./skip-link-focus-fix.js";
 import { RevealChildrenOf } from "./animations.js";
+
+/* DOM Measurement for better RWD */
 
 window.addEventListener("load", () => {
 	let vh = window.innerHeight * 0.01;
@@ -32,7 +32,11 @@ window.addEventListener("resize", () => {
 	);
 });
 
+/* Functionalities */
+
 document.addEventListener("DOMContentLoaded", () => {
+	smoothscroll.polyfill();
+
 	/* Check if iPad */
 	console.log(window.navigator);
 	const isiPad = window.navigator.userAgent.match(/iPad/i) != null;
@@ -173,4 +177,32 @@ document.addEventListener("DOMContentLoaded", () => {
 			});
 		});
 	}
+
+	/* Scroll Down Button */
+
+	const scrollDownButton = document.querySelector(".welcome-view__scroll-down");
+
+	scrollDownButton.addEventListener("click", () => {
+		document.querySelector("#scroll-target").scrollIntoView({
+			behavior: "smooth",
+			block: "start",
+			inline: "start"
+		});
+	});
+
+	/* Center Points */
+
+	const circleElements = document.querySelectorAll(
+		".center-point__circle-element .svg-holder"
+	);
+
+	circleElements.forEach(element => {
+		element.addEventListener("mouseenter", function() {
+			this.classList.add("circle-animations");
+		});
+
+		element.addEventListener("mouseleave", function() {
+			this.classList.remove("circle-animations");
+		});
+	});
 });
