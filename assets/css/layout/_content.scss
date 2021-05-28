@@ -233,77 +233,12 @@ section {
 		@media screen and (max-width: 992px) {
 			display: none;
 		}
-
-		.wrapper {
-			position: relative;
-			display: flex;
-			justify-content: center;
-			margin: auto;
-			height: 100%;
-			width: 100%;
-			cursor: pointer;
-		}
-
-		.chevron {
-			position: absolute;
-			width: 28px;
-			height: 2px;
-			opacity: 0;
-			transform: scale3d(0.5, 0.5, 0.5);
-			animation: move 3s ease-out infinite;
-		}
-
-		.chevron:first-child {
-			animation: move 3s ease-out 1s infinite;
-		}
-
-		.chevron:nth-child(2) {
-			animation: move 3s ease-out 2s infinite;
-		}
-
-		.chevron:before,
-		.chevron:after {
-			content: " ";
-			position: absolute;
-			top: 0;
-			height: 100%;
-			width: 51%;
-			background: #000;
-		}
-
-		.chevron:before {
-			left: 3px;
-			transform: rotate(45deg);
-		}
-
-		.chevron:after {
-			right: 2px;
-			width: 50%;
-			transform: rotate(-45deg);
-		}
-
-		@keyframes move {
-			25% {
-				opacity: 1;
-			}
-			33% {
-				opacity: 1;
-				transform: translateY(20px);
-			}
-			67% {
-				opacity: 1;
-				transform: translateY(30px);
-			}
-			100% {
-				opacity: 0;
-				transform: translateY(45px) scale3d(0.5, 0.5, 0.5);
-			}
-		}
 	}
 }
 
 .advantages {
 	background: $color__background__light;
+
 	&__content {
 		text-align: center;
 		height: 100%;
@@ -316,6 +251,7 @@ section {
 		padding-bottom: 3em;
 
 		@media screen and (min-width: 992px) {
+			padding: 0 5%;
 			padding-top: 10%;
 			padding-bottom: 10%;
 		}
@@ -323,6 +259,10 @@ section {
 
 	&__title {
 		margin-bottom: 5em;
+
+		@media screen and (min-width: 992px) {
+			margin-bottom: 8em;
+		}
 
 		h1 {
 			margin-bottom: 0;
@@ -342,16 +282,41 @@ section {
 	}
 
 	.single-advantage {
+		cursor: pointer;
 		margin-bottom: 3em;
 
 		@media screen and (min-width: 992px) {
 			width: 33%;
-			padding: 5em;
+
+			padding: 6em 5em 4em;
 
 			&:nth-of-type(2) {
 				border: 2px solid #000;
 				border-top: none;
 				border-bottom: none;
+
+				padding: 6em 5em 4em 5em;
+			}
+		}
+
+		&__title {
+			position: relative;
+			height: 3em;
+		}
+
+		h1 {
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		.font-outline {
+			transition: all 0.3s ease-in-out;
+		}
+
+		&:hover {
+			.font-outline {
+				-webkit-text-stroke: 1px $color__custom-red;
 			}
 		}
 
@@ -372,9 +337,8 @@ section {
 	background: $color__background__light-grey;
 
 	&__content {
-		@media screen and (max-width: 992px) {
+		@media screen and (max-width: 1200px) {
 			padding: 0 0em;
-
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
@@ -383,7 +347,7 @@ section {
 			padding-bottom: 3em;
 		}
 
-		@media screen and (min-width: 992px) {
+		@media screen and (min-width: 1200px) {
 			padding-top: 10%;
 			padding-bottom: 10%;
 			display: grid;
@@ -392,16 +356,34 @@ section {
 		}
 	}
 
+	.mobile-only {
+		@media screen and (min-width: 1200px) {
+			display: none;
+		}
+
+		width: 180px;
+		height: 180px;
+	}
+
+	.desktop-only {
+		@media screen and (max-width: 1200px) {
+			display: none;
+		}
+
+		width: 260px;
+		height: 260px;
+	}
+
 	&__title {
 		h1 {
 			text-align: center;
 
-			@media screen and (min-width: 992px) {
+			@media screen and (min-width: 1200px) {
 				text-align: initial;
 			}
 		}
 
-		@media screen and (min-width: 992px) {
+		@media screen and (min-width: 1200px) {
 			grid-row-start: 2;
 			grid-column-start: 1;
 		}
@@ -413,13 +395,17 @@ section {
 		margin-bottom: 5em;
 		text-align: center;
 
-		width: 360px;
+		@media screen and (max-width: 400px) {
+			width: 360px;
+		}
+
+		width: 400px;
 		margin: auto;
 
-		@media screen and (min-width: 992px) {
+		@media screen and (min-width: 1200px) {
 			grid-row-start: 1;
 			grid-column-start: 2;
-			width: 600px;
+			width: 650px;
 		}
 
 		p {
@@ -430,13 +416,13 @@ section {
 	}
 
 	&__description {
-		@media screen and (max-width: 992px) {
+		@media screen and (max-width: 1200px) {
 			transform: translateY(-30%);
 			padding: 0 3em;
 			text-align: center;
 		}
 
-		@media screen and (min-width: 992px) {
+		@media screen and (min-width: 1200px) {
 			grid-row-start: 3;
 			grid-column-start: 1;
 			padding-right: 3em;
@@ -460,19 +446,19 @@ section {
 			color: $color__custom-red;
 			@include fluid-type($min_width, $max_width, 18px, 20px);
 
-			@media screen and (max-width: 992px) {
+			@media screen and (max-width: 1200px) {
 				text-align: center;
 			}
 
-			@media screen and (min-width: 992px) {
-				@include fluid-type($min_width, $max_width, 24px, 28px);
+			@media screen and (min-width: 1200px) {
+				@include fluid-type($min_width, $max_width, 19px, 21px);
 			}
 		}
 
 		.font-outline__red {
 			@include fluid-type($min_width, $max_width, 22px, 24px);
 
-			@media screen and (min-width: 992px) {
+			@media screen and (min-width: 1200px) {
 				@include fluid-type($min_width, $max_width, 26px, 30px);
 			}
 		}
@@ -488,7 +474,7 @@ section {
 		}
 
 		text {
-			font-size: 6px;
+			font-size: 7px;
 			text-transform: uppercase;
 			fill: #000;
 			letter-spacing: 2px;
@@ -503,35 +489,47 @@ section {
 			fill: $color__custom-red;
 		}
 
-		// svg {
-		// 	animation-name: rotate;
-		// 	animation-duration: 15s;
-		// 	animation-iteration-count: infinite;
-		// 	animation-timing-function: linear;
-		// }
+		svg {
+			animation-name: rotate;
+			animation-duration: 25s;
+			animation-iteration-count: forwards;
+			animation-timing-function: linear;
+		}
 
-		// @keyframes rotate {
-		// 	from {
-		// 		transform: rotate(360deg);
-		// 	}
-		// 	to {
-		// 		transform: rotate(0);
-		// 	}
-		// }
+		@keyframes rotate {
+			from {
+				transform: rotate(0deg);
+			}
+			to {
+				transform: rotate(360deg);
+			}
+		}
 	}
 
 	.clinics__holder {
 		transform: translateY(-25%);
+
+		@media screen and (min-width: 992px) {
+			transform: translateY(-15%);
+		}
 	}
 
 	.fabrication__holder {
 		float: left;
-		transform: translateY(-80%);
+		transform: translateY(-65%);
+
+		@media screen and (min-width: 992px) {
+			transform: translateY(-75%);
+		}
 	}
 
 	.manufacturers__holder {
 		float: right;
-		transform: translateY(-80%);
+		transform: translateY(-65%);
+
+		@media screen and (min-width: 992px) {
+			transform: translateY(-75%);
+		}
 	}
 
 	// &__bottom {

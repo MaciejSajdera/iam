@@ -1,6 +1,8 @@
 import smoothscroll from "smoothscroll-polyfill";
 import skipLinkFocus from "./skip-link-focus-fix.js";
 import { RevealChildrenOf } from "./animations.js";
+import scrollAnimations from "./scrollAnimations.js";
+import isElementInViewport from "./helperFunctions.js";
 
 /* DOM Measurement for better RWD */
 
@@ -35,13 +37,27 @@ window.addEventListener("resize", () => {
 /* Functionalities */
 
 document.addEventListener("DOMContentLoaded", () => {
+	const myPreloader = document.querySelector(".my-preloader");
+	const page = document.querySelector("#page");
+	const body = document.querySelector("body");
+
+	setTimeout(() => {
+		// 	myPreloader.classList.add("my-preloader-off");
+		// 	page.classList.add("page-loaded");
+		// 	body.classList.add("body-loaded");
+	}, 1000);
+
+	// setTimeout(() => {
+	// 	myPreloader.classList.add("my-preloader-none");
+
+	// 	page.classList.add("page-show");
+	// }, 1200);
+
 	smoothscroll.polyfill();
+	scrollAnimations();
 
 	/* Check if iPad */
-	console.log(window.navigator);
 	const isiPad = window.navigator.userAgent.match(/iPad/i) != null;
-
-	console.log(isiPad);
 
 	if (isiPad) {
 		//elements that have variations for iPad
@@ -67,6 +83,12 @@ document.addEventListener("DOMContentLoaded", () => {
 	const mainNavigation = document.querySelector(".main-navigation");
 	const allMenuItems = document.querySelectorAll(".menu-item");
 
+	//Navigation is initially hidden due to the 'transfrom: translate' delay when page is loading
+
+	setTimeout(() => {
+		mainNavigation.style.display = "flex";
+	}, 100);
+
 	let isMenuOpen = false;
 
 	function toggleMenu(e) {
@@ -76,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		isMenuOpen
 			? (menuToggleButton.classList.add("menu--open"),
 			  menuToggleButton.classList.add("menu-toggle--light"),
-			  showLinkElements())
+			  showTextElements())
 			: (menuToggleButton.classList.remove("menu--open"),
 			  menuToggleButton.classList.remove("menu-toggle--light"));
 
@@ -94,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const menuToggleButton = document.querySelector(".menu-toggle");
 	menuToggleButton.addEventListener("click", toggleMenu);
 
-	const showLinkElements = () => {
+	const showTextElements = () => {
 		function textRevealMenu() {
 			allMenuItems.forEach(item => {
 				const linkElement = item.querySelector("A");
@@ -204,5 +226,20 @@ document.addEventListener("DOMContentLoaded", () => {
 		element.addEventListener("mouseleave", function() {
 			this.classList.remove("circle-animations");
 		});
+	});
+
+	/* Footer */
+	const subscribeWrapper = document.querySelector(".subscribe-info__subscribe");
+	const subscribeButton = document.querySelector(".subscribe-info .button");
+
+	isElementInViewport(subscribeButton)
+		? (subscribeButton.classList.add("button-slided"),
+		  subscribeWrapper.classList.add("subscribe-info__subscribe--in-viewport"))
+		: "";
+
+	const scrollUpButton = document.querySelector(".footer__scroll-up");
+
+	scrollUpButton.addEventListener("click", () => {
+		window.scrollTo({ top: 0, behavior: "smooth" });
 	});
 });

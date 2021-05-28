@@ -112,7 +112,7 @@
                                 <g>
                                     <use xlink:href="#circlePath" fill="none"/>
                                     <text fill="#000">
-                                        <textPath xlink:href="#circlePath">distributorsdistributorsdistributorsdistributorsdistributorsdistributorsdistributorsdistributorsdistributorsdistributorsdistributorsdistributorsdistributors</textPath>
+                                        <textPath xlink:href="#circlePath">CENTRALFABRICATIONCENTRALFABRICATIONCENTRALFABRICATIONCENTRALFABRICATIONCENTRALFABRICATIONCENTRALFABRICATIONCENTRALFABRICATIONCENTRALFABRICATIONCENTRALFABRICATIONCENTRALFABRICATION</textPath>
                                     </text>
                                 </g>
                             </svg>
@@ -127,7 +127,7 @@
                                 <g>
                                     <use xlink:href="#circlePathDesktop" fill="none"/>
                                     <text fill="#000">
-                                        <textPath xlink:href="#circlePathDesktop">distributorsdistributorsdistributorsdistributorsdistributorsdistributorsdistributorsdistributorsdistributorsdistributorsdistributorsdistributorsdistributors</textPath>
+                                        <textPath xlink:href="#circlePathDesktop">CENTRALFABRICATIONCENTRALFABRICATIONCENTRALFABRICATIONCENTRALFABRICATIONCENTRALFABRICATIONCENTRALFABRICATIONCENTRALFABRICATIONCENTRALFABRICATIONCENTRALFABRICATION</textPath>
                                     </text>
                                 </g>
                             </svg>
@@ -154,7 +154,7 @@
                                 <g>
                                     <use xlink:href="#circlePath" fill="none"/>
                                     <text fill="#000">
-                                        <textPath xlink:href="#circlePath">distributorsdistributorsdistributorsdistributorsdistributorsdistributorsdistributorsdistributorsdistributorsdistributorsdistributorsdistributorsdistributors</textPath>
+                                        <textPath xlink:href="#circlePath">manufacturersmanufacturersmanufacturersmanufacturersmanufacturersmanufacturersmanufacturersmanufacturersmanufacturersmanufacturersmanufacturersmanufacturersmanufacturersmanufacturers</textPath>
                                     </text>
                                 </g>
                             </svg>
@@ -169,7 +169,7 @@
                                 <g>
                                     <use xlink:href="#circlePathDesktop" fill="none"/>
                                     <text fill="#000">
-                                        <textPath xlink:href="#circlePathDesktop">distributorsdistributorsdistributorsdistributorsdistributorsdistributorsdistributorsdistributorsdistributorsdistributorsdistributorsdistributorsdistributors</textPath>
+                                        <textPath xlink:href="#circlePathDesktop">manufacturersmanufacturersmanufacturersmanufacturersmanufacturersmanufacturersmanufacturersmanufacturersmanufacturersmanufacturersmanufacturersmanufacturersmanufacturers</textPath>
                                     </text>
                                 </g>
                             </svg>

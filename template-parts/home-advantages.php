@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="single-advantage__title">
-                    <h1 class="font-outline__red">
+                    <h1 class="font-outline">
                         TIME
                     </h1>
                 </div>
@@ -56,13 +56,13 @@
 
                 <div class="single-advantage__title">
                     <h1 class="font-outline">
-                        TIME
+                        PATIENTS
                     </h1>
                 </div>
 
                 <div class="single-advantage__description">
                     <p>
-                        Up to 70% of CPO’s time is spent in the workshop
+                    More time for patients mean more revenue
                     </p>
                 </div>
 
@@ -85,14 +85,14 @@
                 </div>
 
                 <div class="single-advantage__title">
-                    <h1 class="font-outline__red">
-                        TIME
+                    <h1 class="font-outline">
+                        PORTFOLIO
                     </h1>
                 </div>
 
                 <div class="single-advantage__description">
                     <p>
-                        Up to 70% of CPO’s time is spent in the workshop
+                        You can expand your portfolio without hiring additional staff
                     </p>
                 </div>
 

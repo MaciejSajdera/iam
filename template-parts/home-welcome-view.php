@@ -16,10 +16,10 @@ $welcome_view__description = $welcome_view['description'];
 
         <div class="welcome-view__titles">
             <h1 class="font-outline font-outline__red smaller-title">
-             <?php echo $welcome_view__title_outline ?>
+                <?php echo $welcome_view__title_outline ?>
             </h1>
             <h1>
-            <?php echo $welcome_view__title ?>
+                <?php echo $welcome_view__title ?>
             </h1>
         </div>
 
@@ -42,8 +42,8 @@ $welcome_view__description = $welcome_view['description'];
 
     </div>
 
-    <div class="welcome-view__scroll-down square-box">
-        <div class="wrapper">
+    <div class="welcome-view__scroll-down square-box square-box__black">
+        <div class="chevron-wrapper">
             <div class="chevron"></div>
             <div class="chevron"></div>
             <div class="chevron"></div>

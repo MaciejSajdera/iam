@@ -12,7 +12,7 @@
 	transform: translateX(200%);
 	transition: 0.8s ease-in-out;
 	background: $color__background__dark;
-	display: flex;
+	display: none;
 	flex-flow: column;
 	justify-content: space-around;
 
@@ -167,7 +167,7 @@ ul.menu {
 
 		.font-outline {
 			&__red {
-				-webkit-text-stroke: 2px $color__custom-red;;
+				-webkit-text-stroke: 2px $color__custom-red;
 			}
 		}
 

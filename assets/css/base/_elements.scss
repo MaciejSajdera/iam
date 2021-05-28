@@ -9,10 +9,15 @@
 html {
 	box-sizing: border-box;
 	scroll-behavior: smooth;
+	height: 100%;
 }
 
 body {
-	background: $color__background-body; // Fallback for when there is no custom background color defined.
+	// background: #000; // Fallback for when there is no custom background color defined.
+}
+
+.body-loaded {
+	background: $color__background-body;
 }
 
 blockquote,
@@ -101,9 +106,75 @@ table {
 	width: 100%;
 }
 
+/* Preloader */
+
+.my-preloader {
+	height: 100vh;
+	position: fixed;
+	width: 100vw;
+	background: #000;
+	z-index: 99999;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.3s ease-in;
+	opacity: 1;
+
+	.preloader-content {
+		background: url(../dist/img/branding.png) no-repeat;
+		display: block;
+		height: 5em;
+		width: 5em;
+		background-size: contain;
+		background-position: center;
+		animation: mymove 1.5s infinite;
+	}
+}
+
+@keyframes mymove {
+	0% {
+		transform: scale(1.1);
+		opacity: 0;
+	}
+
+	50% {
+		opacity: 1;
+		transform: scale(1);
+	}
+
+	100% {
+		transform: scale(1.1);
+		opacity: 0;
+	}
+}
+
+.my-preloader-off {
+	opacity: 0;
+}
+
+.my-preloader-none {
+	display: none;
+}
+
+.site {
+	transition: all 0.3s ease-in;
+	// // display: none;
+	// opacity: 0;
+}
+
+.page-loaded {
+	display: block;
+}
+
+.page-show {
+	opacity: 1 !important;
+}
+
 .button {
 	cursor: pointer;
 	border-radius: 15px;
+	border-color: transparent;
 
 	&__cta {
 		height: 48px;
@@ -115,7 +186,8 @@ table {
 		text-decoration: none;
 		@include fluid-type($min_width, $max_width, 14px, 16px);
 		font-weight: 800;
-		transition: $transition_regular;
+		transition: background-color 0.3s ease-in-out,
+			right 0.95s cubic-bezier(0.22, 0.61, 0.36, 1);
 		width: fit-content;
 		min-width: 210px;
 		text-align: center;
@@ -135,6 +207,22 @@ table {
 	}
 }
 
+.input {
+	height: 48px;
+	line-height: 48px;
+	background: transparent;
+	border-radius: 15px;
+
+	@media screen and (min-width: 992px) {
+		height: 56px;
+		line-height: 56px;
+	}
+
+	&__red-outline {
+		border: 2px solid $color__custom-red;
+	}
+}
+
 .font {
 	&__red {
 		color: $color__custom-red !important;
@@ -145,11 +233,6 @@ table {
 .font-outline {
 	color: transparent !important;
 	-webkit-text-stroke: 1px #000;
-
-	&:hover {
-		color: transparent !important;
-		-webkit-text-stroke: 1px $color__custom-red;
-	}
 
 	&__red {
 		color: transparent !important;
@@ -246,16 +329,87 @@ table {
 		height: 56px;
 		width: 56px;
 	}
-}
 
-.mobile-only {
-	@media screen and (min-width: 992px) {
-		display: none;
+	&__black {
+		border-color: #000;
+
+		.chevron:before,
+		.chevron:after {
+			background: #000;
+		}
+	}
+
+	&__light-grey {
+		border-color: $color__border-light-grey;
+
+		.chevron:before,
+		.chevron:after {
+			background: $color__border-light-grey;
+		}
 	}
 }
 
-.desktop-only {
-	@media screen and (max-width: 992px) {
-		display: none;
+.chevron-wrapper {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	margin: auto;
+	height: 100%;
+	width: 100%;
+	cursor: pointer;
+}
+
+.chevron {
+	position: absolute;
+	width: 28px;
+	height: 2px;
+	opacity: 0;
+	transform: scale3d(0.5, 0.5, 0.5);
+	animation: move 3s ease-out infinite;
+}
+
+.chevron:first-child {
+	animation: move 3s ease-out 1s infinite;
+}
+
+.chevron:nth-child(2) {
+	animation: move 3s ease-out 2s infinite;
+}
+
+.chevron:before,
+.chevron:after {
+	content: " ";
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 51%;
+}
+
+.chevron:before {
+	left: 3px;
+	transform: rotate(45deg);
+}
+
+.chevron:after {
+	right: 2px;
+	width: 50%;
+	transform: rotate(-45deg);
+}
+
+@keyframes move {
+	25% {
+		opacity: 1;
+	}
+	33% {
+		opacity: 1;
+		transform: translateY(20px);
+	}
+	67% {
+		opacity: 1;
+		transform: translateY(30px);
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(45px) scale3d(0.5, 0.5, 0.5);
 	}
 }
