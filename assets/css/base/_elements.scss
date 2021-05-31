@@ -10,10 +10,18 @@ html {
 	box-sizing: border-box;
 	scroll-behavior: smooth;
 	height: 100%;
+	-webkit-tap-highlight-color: transparent; /* for removing the highlight */
 }
 
 body {
 	// background: #000; // Fallback for when there is no custom background color defined.
+}
+
+::selection {
+	background: rgba(255, 33, 63, 0.1); /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+	background: rgba(255, 33, 63, 0.1); /* Gecko Browsers */
 }
 
 .body-loaded {
@@ -177,6 +185,9 @@ table {
 	border-color: transparent;
 
 	&__cta {
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		height: 48px;
 		line-height: 48px;
 		background-color: $color__custom-red;
@@ -220,6 +231,12 @@ table {
 
 	&__red-outline {
 		border: 2px solid $color__custom-red;
+	}
+}
+
+.text {
+	&__red {
+		color: $color__custom-red !important;
 	}
 }
 
@@ -411,5 +428,17 @@ table {
 	100% {
 		opacity: 0;
 		transform: translateY(45px) scale3d(0.5, 0.5, 0.5);
+	}
+}
+
+.mobile-only {
+	@media screen and (min-width: 1200px) {
+		display: none !important;
+	}
+}
+
+.desktop-only {
+	@media screen and (max-width: 1200px) {
+		display: none !important;
 	}
 }

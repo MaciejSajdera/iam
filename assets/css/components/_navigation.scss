@@ -6,7 +6,7 @@
 	height: 100%;
 	min-height: 100vh; //fallback
 	min-height: calc(
-		(var(--vh, 1vh) * 100)
+		var(--fullVH)
 	); // height depends on browsers panel on the top
 	width: 100%;
 	transform: translateX(200%);
@@ -92,9 +92,9 @@
 		.contact-icon {
 			transition: all 0.3s ease-in-out;
 
-			&:hover {
-				transform: scale(1.1);
-			}
+			// &:hover {
+			// 	transform: scale(1.1);
+			// }
 
 			@media screen and (max-width: 712px) {
 				display: none;
