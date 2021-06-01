@@ -4,7 +4,7 @@ const isElementInViewport = el => {
 
 	const viewport = {
 		top: scroll,
-		bottom: scroll + window.innerHeight
+		bottom: scroll + window.innerHeight // add multiplier (i.e * 0.75) to delay trigger
 	};
 
 	const bounds = {

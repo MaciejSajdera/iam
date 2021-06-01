@@ -15,6 +15,28 @@ html {
 
 body {
 	// background: #000; // Fallback for when there is no custom background color defined.
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+.viewport {
+	overflow: hidden;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.scroll-container {
+	position: absolute;
+	overflow: hidden;
+	z-index: 10;
+	justify-content: center;
+	backface-visibility: hidden;
+	transform-style: preserve-3d;
 }
 
 ::selection {
@@ -332,8 +354,8 @@ table {
 .square-box {
 	background: transparent;
 	border: 2px solid;
-	height: 48px;
-	width: 48px;
+	height: 48px !important;
+	width: 48px !important;
 	border-radius: 5px;
 	padding: 0;
 	display: flex;
@@ -343,8 +365,8 @@ table {
 	position: relative;
 
 	@media screen and (min-width: 992px) {
-		height: 56px;
-		width: 56px;
+		height: 56px !important;
+		width: 56px !important;
 	}
 
 	&__black {

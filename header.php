@@ -30,7 +30,12 @@
 
 
 <?php wp_body_open(); ?>
-<div id="page" class="site">
+    
+
+<div id="page" class="site viewport">
+
+<div id="scroll-container" class="scroll-container">
+	
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'am' ); ?></a>
 
 	<header id="masthead" class="site-header">

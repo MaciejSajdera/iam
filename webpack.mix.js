@@ -13,10 +13,10 @@
  */
 
 // Import required packages.
-const mix               = require( 'laravel-mix' ),
-	  ImageminPlugin    = require( 'imagemin-webpack-plugin' ).default,
-	  CopyWebpackPlugin = require( 'copy-webpack-plugin' ),
-	  imageminMozjpeg   = require( 'imagemin-mozjpeg' );
+const mix = require("laravel-mix"),
+	ImageminPlugin = require("imagemin-webpack-plugin").default,
+	CopyWebpackPlugin = require("copy-webpack-plugin"),
+	imageminMozjpeg = require("imagemin-mozjpeg");
 
 /*
  * -----------------------------------------------------------------------------
@@ -28,8 +28,8 @@ const mix               = require( 'laravel-mix' ),
  * -----------------------------------------------------------------------------
  */
 
-if ( process.env.export ) {
-	const exportTheme = require( './webpack.mix.export.js' );
+if (process.env.export) {
+	const exportTheme = require("./webpack.mix.export.js");
 	return;
 }
 
@@ -47,15 +47,14 @@ if ( process.env.export ) {
  * Sets the development path to assets. By default, this is the `/resources`
  * folder in the theme.
  */
-const devPath  = 'assets';
-const distPath = 'dist';
+const devPath = "assets";
+const distPath = "dist";
 
 /*
  * Sets the path to the generated assets. By default, this is the `/dist` folder
  * in the theme. If doing something custom, make sure to change this everywhere.
  */
-mix.setPublicPath( 'dist' );
-
+mix.setPublicPath("dist");
 
 mix.disableSuccessNotifications();
 
@@ -65,10 +64,10 @@ mix.disableSuccessNotifications();
  * @link https://laravel.com/docs/5.6/mix#postcss
  * @link https://laravel.com/docs/5.6/mix#url-processing
  */
-mix.options( {
-	postCss        : [ require( 'postcss-preset-env' )() ],
-	processCssUrls : false
-} );
+mix.options({
+	postCss: [require("postcss-preset-env")()],
+	processCssUrls: false
+});
 
 /*
  * Builds sources maps for assets.
@@ -91,8 +90,10 @@ if (mix.inProduction()) {
  *
  * @link https://laravel.com/docs/5.6/mix#working-with-scripts
  */
-mix.js( `${devPath}/js/main.js`,              'js' )
-   .js( `${devPath}/js/admin/customizer.js`, 'js' );
+mix
+	.js(`${devPath}/js/main.js`, "js")
+	.js(`${devPath}/js/admin/customizer.js`, "js")
+	.js(`${devPath}/js/carousels.js`, "js");
 
 /*
  * Compile CSS. Mix supports Sass, Less, Stylus, and plain CSS, and has functions
@@ -105,13 +106,13 @@ mix.js( `${devPath}/js/main.js`,              'js' )
 
 // Sass configuration.
 var sassConfig = {
-	outputStyle : 'expanded',
-	indentType  : 'tab',
-	indentWidth : 1
+	outputStyle: "expanded",
+	indentType: "tab",
+	indentWidth: 1
 };
 
 // Compile SASS/CSS.
-mix.sass( `${devPath}/css/style.scss`, 'css', sassConfig );
+mix.sass(`${devPath}/css/style.scss`, "css", sassConfig);
 
 /*
  * Add custom Webpack configuration.
@@ -123,54 +124,50 @@ mix.sass( `${devPath}/css/style.scss`, 'css', sassConfig );
  * @link https://laravel.com/docs/5.6/mix#custom-webpack-configuration
  * @link https://webpack.js.org/configuration/
  */
-mix.webpackConfig( {
-	stats       : 'minimal',
-	devtool     : mix.inProduction() ? false : 'source-map',
-	performance : { hints  : false },
-	plugins     : [
+mix.webpackConfig({
+	stats: "minimal",
+	devtool: mix.inProduction() ? false : "source-map",
+	performance: { hints: false },
+	plugins: [
 		// @link https://github.com/webpack-contrib/copy-webpack-plugin
-		new CopyWebpackPlugin( [
-			{ from : `${devPath}/img`,   to : `${distPath}/img`   },
-			{ from : `${devPath}/svg`,   to : `${distPath}/svg`   },
-			{ from : `${devPath}/fonts`, to : `${distPath}/fonts` }
-		] ),
+		new CopyWebpackPlugin([
+			{ from: `${devPath}/img`, to: `${distPath}/img` },
+			{ from: `${devPath}/svg`, to: `${distPath}/svg` },
+			{ from: `${devPath}/fonts`, to: `${distPath}/fonts` }
+		]),
 		// @link https://github.com/Klathmon/imagemin-webpack-plugin
-		new ImageminPlugin( {
-			test     : /\.(jpe?g|png|gif|svg)$/i,
-			disable  : process.env.NODE_ENV !== 'production',
-			optipng  : { optimizationLevel : 3 },
-			gifsicle : { optimizationLevel : 3 },
-			pngquant : {
-				quality : '65-90',
-				speed   : 4
+		new ImageminPlugin({
+			test: /\.(jpe?g|png|gif|svg)$/i,
+			disable: process.env.NODE_ENV !== "production",
+			optipng: { optimizationLevel: 3 },
+			gifsicle: { optimizationLevel: 3 },
+			pngquant: {
+				quality: "65-90",
+				speed: 4
 			},
-			svgo : {
-				plugins : [
-					{ cleanupIDs                : false },
-					{ removeViewBox             : false },
-					{ removeUnknownsAndDefaults : false }
+			svgo: {
+				plugins: [
+					{ cleanupIDs: false },
+					{ removeViewBox: false },
+					{ removeUnknownsAndDefaults: false }
 				]
 			},
-			plugins : [
+			plugins: [
 				// @link https://github.com/imagemin/imagemin-mozjpeg
-				imageminMozjpeg( { quality : 75 } )
+				imageminMozjpeg({ quality: 75 })
 			]
-		} )
+		})
 	]
-} );
+});
 
-if ( process.env.sync ) {
-
+if (process.env.sync) {
 	/*
 	 * Monitor files for changes and inject your changes into the browser.
 	 *
 	 * @link https://laravel.com/docs/5.6/mix#browsersync-reloading
 	 */
-	mix.browserSync( {
-		proxy : 'http://am.local/',
-		files : [
-			'dist/**/*',
-			'./**/*.php',
-		]
-	} );
+	mix.browserSync({
+		proxy: "http://am.local/",
+		files: ["dist/**/*", "./**/*.php"]
+	});
 }
