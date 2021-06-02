@@ -19,24 +19,28 @@ body {
 	overflow-y: scroll;
 }
 
-.viewport {
-	overflow: hidden;
-	position: fixed;
-	height: 100%;
-	width: 100%;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-}
+@media screen and (min-width: 992px) {
+	.viewport {
+		overflow: hidden;
+		position: fixed;
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
 
-.scroll-container {
-	position: absolute;
-	overflow: hidden;
-	z-index: 10;
-	justify-content: center;
-	backface-visibility: hidden;
-	transform-style: preserve-3d;
+	.scroll-container {
+		width: 100%;
+		position: absolute;
+		overflow: hidden;
+		z-index: 10;
+		justify-content: center;
+		backface-visibility: hidden;
+		transform-style: preserve-3d;
+		will-change: transform;
+	}
 }
 
 ::selection {
@@ -215,7 +219,7 @@ table {
 		background-color: $color__custom-red;
 		color: $color__text-white !important;
 		text-transform: uppercase;
-		padding: 0 60px;
+		padding: 0 30px;
 		text-decoration: none;
 		@include fluid-type($min_width, $max_width, 14px, 16px);
 		font-weight: 800;
@@ -225,13 +229,14 @@ table {
 		min-width: 210px;
 		text-align: center;
 
+		@media screen and (min-width: 400px) {
+			padding: 0 45px;
+		}
+
 		@media screen and (min-width: 992px) {
 			height: 56px;
 			line-height: 56px;
-		}
-
-		@media screen and (max-width: 400px) {
-			padding: 0 30px;
+			padding: 0 60px;
 		}
 
 		&:hover {

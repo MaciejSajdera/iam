@@ -30,22 +30,15 @@
 
 
 <?php wp_body_open(); ?>
-    
 
-<div id="page" class="site viewport">
-
-<div id="scroll-container" class="scroll-container">
-	
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'am' ); ?></a>
-
-	<header id="masthead" class="site-header">
+<header id="masthead" class="site-header">
 		<div class="site-branding">
 			<?php
 				the_custom_logo();
 			 ?>
 		</div><!-- .site-branding -->
 
-		<button class="menu-toggle menu-toggle--dark" aria-controls="primary-menu" aria-expanded="false">
+		<button class="menu-toggle menu-toggle--dark <?php if (is_page(79)) : echo 'menu-toggle--light'; endif; ?>" aria-controls="primary-menu" aria-expanded="false">
 
 			<div class="span-wrapper">
 
@@ -120,5 +113,13 @@
 
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
+
+<div id="page" class="site viewport">
+
+<div id="scroll-container" class="scroll-container">
+	
+	<!-- <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'am' ); ?></a> -->
+
+
 
 	<div id="content" class="site-content">

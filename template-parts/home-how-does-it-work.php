@@ -39,11 +39,12 @@
                             <path d="M36.2662 24.7716L25.5396 11.3643C24.1349 9.70437 22.0918 8.68286 19.9209 8.68286H15.0684C10.9821 8.68286 7.78961 12.0028 7.78961 15.9611V20.5579C7.78961 22.6009 8.6835 24.5163 10.0882 25.9208L22.858 37.4128C24.518 39.2005 26.6889 39.7112 27.7105 38.8174L37.2878 29.8792C38.3094 28.73 37.9263 26.5593 36.2662 24.7716Z" fill="#201D1D"/>
                         </svg>
 
-
-                        <svg class="step__path" width="92" height="307" viewBox="0 0 92 307" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1.5 306.5C1.50001 158.5 191.5 0.999994 18.5023 0.999994" stroke="black" stroke-width="1.5"/>
-                        </svg>
-
+                        <div class="svg-path-holder">
+                        <span class="svg-path-cover svg-path-cover--1"></span>
+                            <svg class="step__path" width="92" height="307" viewBox="0 0 92 307" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.5 306.5C1.50001 158.5 191.5 0.999994 18.5023 0.999994" stroke="black" stroke-width="1.5"/>
+                            </svg>
+                        </div>
 
                     </div>
                     
@@ -73,9 +74,12 @@
 
                         </div>
 
-                        <svg class="step__path" width="223" height="256" viewBox="0 0 223 256" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M41 4C41 194.5 94 254.999 166.337 254.999" stroke="black" stroke-width="1.5"/>
-                        </svg>
+                        <div class="svg-path-holder">
+                            <span class="svg-path-cover svg-path-cover--2"></span>
+                            <svg class="step__path" width="223" height="256" viewBox="0 0 223 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M41 4C41 194.5 94 254.999 166.337 254.999" stroke="black" stroke-width="1.5"/>
+                            </svg>
+                        </div>
 
                     </div>
 
@@ -97,10 +101,12 @@
                             <path d="M47.1205 37.2849H36.5216V47.8831H47.1205V37.2849Z" fill="#BE272E"/>
                         </svg>
 
-
-                        <svg class="step__path" width="191" height="274" viewBox="0 0 191 274" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M0.499983 272.5C259.5 272.5 209.5 1.00115 107.5 1.00117" stroke="black" stroke-width="1.5"/>
-                        </svg>
+                        <div class="svg-path-holder">
+                            <span class="svg-path-cover svg-path-cover--3"></span>
+                            <svg class="step__path" width="191" height="274" viewBox="0 0 191 274" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.499983 272.5C259.5 272.5 209.5 1.00115 107.5 1.00117" stroke="black" stroke-width="1.5"/>
+                            </svg>
+                        </div>
 
                     </div>
                     
@@ -136,9 +142,12 @@
 
             <div class="how-does-it-work__structure--desktop">
 
-                <svg class="step__path" width="142" height="278" viewBox="0 0 142 278" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1.41479 0C1.41479 57 1.91479 239 141.415 277" stroke="#000" stroke-width="1.5"/>
-                </svg>
+                <div class="svg-path-holder">
+                    <span class="svg-path-cover svg-path-cover--1"></span>
+                    <svg class="step__path" width="142" height="278" viewBox="0 0 142 278" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1.41479 0C1.41479 57 1.91479 239 141.415 277" stroke="#000" stroke-width="1.5"/>
+                    </svg>
+                </div>
 
                 <div class="step step-01">
 
@@ -157,9 +166,12 @@
                             <path d="M55.3093 37.779L38.9502 17.3317C36.808 14.8001 33.692 13.2422 30.3812 13.2422H22.9807C16.7487 13.2422 11.8799 18.3053 11.8799 24.3422V31.3527C11.8799 34.4685 13.2431 37.3896 15.3854 39.5317L34.8605 57.058C37.3922 59.7843 40.703 60.5632 42.261 59.2001L56.8673 45.5685C58.4253 43.8159 57.8411 40.5053 55.3093 37.779Z" fill="#201D1D"/>
                         </svg>
 
-                        <svg class="step__path" width="142" height="278" viewBox="0 0 142 278" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M140.415 278C140.415 221 139.915 39 0.414819 0.999988" stroke="#000" stroke-width="1.5"/>
-                        </svg>
+                        <div class="svg-path-holder">
+                            <span class="svg-path-cover svg-path-cover--2"></span>
+                            <svg class="step__path" width="142" height="278" viewBox="0 0 142 278" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M140.415 278C140.415 221 139.915 39 0.414819 0.999988" stroke="#000" stroke-width="1.5"/>
+                            </svg>
+                        </div>
 
                     </div>
 
@@ -188,9 +200,12 @@
 
                         </div>
 
-                        <svg class="step__path" width="314" height="228" viewBox="0 0 314 228" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M39.6492 217.5C160 217.5 270.376 145.582 270.976 1.00045" stroke="black" stroke-width="1.5"/>
-                        </svg>
+                        <div class="svg-path-holder">
+                            <span class="svg-path-cover svg-path-cover--3"></span>
+                            <svg class="step__path" width="314" height="228" viewBox="0 0 314 228" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M39.6492 217.5C160 217.5 270.376 145.582 270.976 1.00045" stroke="black" stroke-width="1.5"/>
+                            </svg>
+                        </div>
 
                     </div>
 
@@ -212,9 +227,17 @@
                             <path d="M71.8631 56.863H55.6987V73.0262H71.8631V56.863Z" fill="#BE272E"/>
                         </svg>
 
-                        <svg class="step__path" width="284" height="328" viewBox="0 0 284 328" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M282.414 83C110.5 82.9997 18.4999 154.5 18.4998 256" stroke="black" stroke-width="1.5"/>
-                        </svg>
+                        <div class="svg-path-holder">
+                        <span class="svg-path-cover svg-path-cover--4"></span>
+                            <!-- <svg class="step__path" width="284" height="328" viewBox="0 0 284 328" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M282.414 83C110.5 82.9997 18.4999 154.5 18.4998 256" stroke="black" stroke-width="1.5"/>
+                            </svg> -->
+
+                            <svg class="step__path" width="266" height="174" viewBox="0 0 266 174" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M265.414 0.999999C93.4998 0.999748 1.49991 72.5003 1.49979 174" stroke="black" stroke-width="1.5"/>
+                            </svg>
+
+                        </div>
 
                     </div>
 

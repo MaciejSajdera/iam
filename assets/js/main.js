@@ -81,14 +81,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	skipLinkFocus();
 
-	/* SmoothScroll */
+	/* SmoothScroll For Desktop */
 
 	var html = document.documentElement;
 	var body = document.body;
 
 	var scroller = {
 		target: document.querySelector("#scroll-container"),
-		ease: 0.04, // <= scroll speed
+		ease: 0.06, // <= scroll speed
 		endY: 0,
 		y: 0,
 		resizeRequest: 1,
@@ -97,63 +97,79 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	var requestId = null;
 
-	// Force CSSPlugin to not get dropped during build
-	gsap.registerPlugin(CSSPlugin);
-
-	TweenLite.set(scroller.target, {
-		rotation: 0.01,
-		force3D: true
-	});
-
-	window.addEventListener("load", onLoad);
-
-	function onLoad() {
-		updateScroller();
-		window.focus();
-		window.addEventListener("resize", onResize);
-		document.addEventListener("scroll", onScroll);
-	}
-
-	function updateScroller() {
-		var resized = scroller.resizeRequest > 0;
-
-		if (resized) {
-			var height = scroller.target.clientHeight;
-			body.style.height = height + "px";
-			scroller.resizeRequest = 0;
-		}
-
-		var scrollY = window.pageYOffset || html.scrollTop || body.scrollTop || 0;
-
-		scroller.endY = scrollY;
-		scroller.y += (scrollY - scroller.y) * scroller.ease;
-
-		if (Math.abs(scrollY - scroller.y) < 0.05 || resized) {
-			scroller.y = scrollY;
-			scroller.scrollRequest = 0;
-		}
+	const initSmoothScroll = () => {
+		// Force CSSPlugin to not get dropped during build
+		gsap.registerPlugin(CSSPlugin);
 
 		TweenLite.set(scroller.target, {
-			y: -scroller.y
+			rotation: 0.01,
+			force3D: true
 		});
 
-		requestId =
-			scroller.scrollRequest > 0 ? requestAnimationFrame(updateScroller) : null;
-	}
+		window.addEventListener("load", onLoad);
 
-	function onScroll() {
-		scroller.scrollRequest++;
-		if (!requestId) {
-			requestId = requestAnimationFrame(updateScroller);
+		function onLoad() {
+			updateScroller();
+			window.focus();
+			window.addEventListener("resize", onResize);
+			document.addEventListener("scroll", onScroll);
+		}
+
+		function updateScroller() {
+			var resized = scroller.resizeRequest > 0;
+
+			if (resized) {
+				var height = scroller.target.clientHeight;
+				body.style.height = height + "px";
+				scroller.resizeRequest = 0;
+			}
+
+			var scrollY = window.pageYOffset || html.scrollTop || body.scrollTop || 0;
+
+			scroller.endY = scrollY;
+			scroller.y += (scrollY - scroller.y) * scroller.ease;
+
+			if (Math.abs(scrollY - scroller.y) < 0.05 || resized) {
+				scroller.y = scrollY;
+				scroller.scrollRequest = 0;
+			}
+
+			TweenLite.set(scroller.target, {
+				y: -scroller.y
+			});
+
+			requestId =
+				scroller.scrollRequest > 0
+					? requestAnimationFrame(updateScroller)
+					: null;
+		}
+
+		function onScroll() {
+			scroller.scrollRequest++;
+			if (!requestId) {
+				requestId = requestAnimationFrame(updateScroller);
+			}
+		}
+
+		function onResize() {
+			scroller.resizeRequest++;
+			if (!requestId) {
+				requestId = requestAnimationFrame(updateScroller);
+			}
+		}
+	};
+
+	const mediaQueryDesktop = window.matchMedia("(min-width: 992px)");
+	function handleDesktopChange(e) {
+		// Check if the media query is true
+		if (e.matches) {
+			// Then log the following message to the console
+			console.log("Media Query Desktop Matched!");
+			initSmoothScroll();
 		}
 	}
-
-	function onResize() {
-		scroller.resizeRequest++;
-		if (!requestId) {
-			requestId = requestAnimationFrame(updateScroller);
-		}
-	}
+	mediaQueryDesktop.addListener(handleDesktopChange);
+	handleDesktopChange(mediaQueryDesktop);
 
 	/* 	Navigation */
 
@@ -279,15 +295,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	/* Scroll Down Button */
 
+	const welcomeViewSection = document.querySelector(".welcome-view");
 	const scrollDownButton = document.querySelector(".welcome-view__scroll-down");
 
-	scrollDownButton.addEventListener("click", () => {
-		document.querySelector("#scroll-target").scrollIntoView({
-			behavior: "smooth",
-			block: "start",
-			inline: "start"
+	const secondSection = document.querySelector("#scroll-target");
+
+	// const smoothScrollToTarget = (trigger, target) => {
+	// 	const distanceToScroll =
+	// 		trigger.getBoundingClientRect().top +
+	// 		target.getBoundingClientRect().top -
+	// 		trigger.getBoundingClientRect().top;
+
+	// 	console.log(`trigger distance from top of the page: ${distanceToScroll}`);
+
+	// 	// trigger.addEventListener("click", () => {});
+	// };
+
+	// smoothScrollToTarget(scrollDownButton, secondSection);
+
+	scrollDownButton &&
+		scrollDownButton.addEventListener("click", () => {
+			window.scroll({
+				top: window.innerHeight,
+				left: 0,
+				behavior: "smooth"
+			});
 		});
-	});
 
 	/* Center Points */
 
@@ -295,15 +328,16 @@ document.addEventListener("DOMContentLoaded", () => {
 		".center-point__circle-element .svg-holder"
 	);
 
-	circleElements.forEach(element => {
-		element.addEventListener("mouseenter", function() {
-			this.classList.add("circle-animations");
-		});
+	circleElements &&
+		circleElements.forEach(element => {
+			element.addEventListener("mouseenter", function() {
+				this.classList.add("circle-animations");
+			});
 
-		element.addEventListener("mouseleave", function() {
-			this.classList.remove("circle-animations");
+			element.addEventListener("mouseleave", function() {
+				this.classList.remove("circle-animations");
+			});
 		});
-	});
 
 	/* Testimonials */
 

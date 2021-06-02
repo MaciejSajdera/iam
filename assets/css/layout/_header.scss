@@ -113,6 +113,18 @@ button.menu-toggle {
 	}
 }
 
+.page-template-testimonials-page-template {
+	button.menu-toggle {
+		&--dark {
+			border-color: #fff;
+
+			span {
+				background: #fff;
+			}
+		}
+	}
+}
+
 $menu-toggle-animation-length: 0.75s;
 
 .menu--open {

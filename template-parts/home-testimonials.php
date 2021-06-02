@@ -13,7 +13,7 @@
                 These companies have already adopted <span class="text__red">[I'am]</span> app. <br /> See what they have to say about our solution.
                 </p>
 
-                <a href="#" class="button button__cta">SEE ALL TESTIMONIALS</a>
+                <a href="<?php echo get_permalink(get_page_by_title( 'Testimonials' )) ?>" class="button button__cta">SEE ALL TESTIMONIALS</a>
             </div>
 
         </div>
