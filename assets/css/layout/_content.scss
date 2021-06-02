@@ -2145,10 +2145,15 @@ section {
 				}
 
 				&__content-holder {
-					padding: 0 10em;
 					grid-row-start: 2;
 					grid-column-start: 1;
 					grid-column-end: 3;
+
+					padding: 0 1.5em;
+
+					@media screen and (min-width: 992px) {
+						padding: 0 10em;
+					}
 
 					p {
 						@include fluid-type($min_width, $max_width, 18px, 22px);
@@ -2156,8 +2161,18 @@ section {
 				}
 
 				&__image-holder {
-					padding: 0 0 0 10em;
 					max-width: 250px;
+					padding: 0 0 0 1.5em;
+					width: 100%;
+
+					@media screen and (max-width: 992px) {
+						height: 50px;
+						margin-bottom: 1em;
+					}
+
+					@media screen and (min-width: 992px) {
+						padding: 0 0 0 10em;
+					}
 				}
 
 				&__image {

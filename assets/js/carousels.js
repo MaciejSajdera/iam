@@ -49,7 +49,7 @@ const initSwiper = () => {
 			// parallax: true,
 			centeredSlides: true,
 			slidesPerView: 1,
-			initialSlide: 1,
+			initialSlide: 0,
 			speed: 1000,
 			autoplay: {
 				delay: 3000
