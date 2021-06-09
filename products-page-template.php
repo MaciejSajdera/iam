@@ -6,6 +6,16 @@
   Page template without sidebar
  */
 
+ $products_title_1 = get_field("title_part_1");
+ $products_title_2 = get_field("title_part_2");
+
+ $products_description_1 = get_field("description_part_1");
+ $products_description_2 = get_field("description_part_2");
+
+$products_cta_title_1 = get_field("cta_title_part_1");
+$products_cta_title_2 = get_field("cta_title_part_2");
+$products_cta_button_text = get_field("cta_button_text");
+
 get_header();
 ?>
 
@@ -66,21 +76,37 @@ get_header();
 					<path d="M35.8765 24.5053L25.2652 11.2421C23.8756 9.6 21.8544 8.58948 19.7069 8.58948H14.9066C10.8642 8.58948 7.70605 11.8737 7.70605 15.7895V20.3368C7.70605 22.3579 8.59033 24.2526 9.9799 25.6421L22.6124 37.0105C24.2546 38.779 26.4021 39.2842 27.4127 38.4L36.8871 29.5579C37.8977 28.4211 37.5187 26.2737 35.8765 24.5053Z" fill="white"/>
 				</svg>
 
-					<h1>PRO<span class="font-outline__red">DUCTS</span></h1>
+					<h1><?php echo $products_title_1 ?><span class="font-outline__red"><?php echo $products_title_2 ?></span></h1>
 
 			</div>
 
 			<div class="products__description products-page__description">
 
 				<h2>
-					We offer a wide range of upper limb products in <span class="text__red">[I'am]</span> app.
+					<?php echo $products_description_1 ?>
 				</h2>
-				<p>From cosmetic devices to our own functional terminal devices and myoelectric solutions. Everything you need to expand your clinic offer is already here.</p>
+				<p>
+					<?php echo $products_description_2 ?>
+				</p>
 			</div>
 
         </div>
 
-		<?php get_template_part( 'template-parts/single-product', 'page' ); ?>
+		<?php get_template_part( 'template-parts/single-product-mobile', 'page' ); ?>
+
+		<?php get_template_part( 'template-parts/single-product-desktop', 'page' ); ?>
+
+
+		<section class="cta-section">
+
+			<h1>
+				<?php echo $products_cta_title_1 ?><br />
+				<span class="font-outline__red"><?php echo $products_cta_title_2 ?></span>
+			</h1>
+
+			<a href="#" class="button button__cta"><?php echo $products_cta_button_text ?></a>
+
+		</section>
 
     </div>
 

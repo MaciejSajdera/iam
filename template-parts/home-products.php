@@ -29,7 +29,7 @@
                 Everything you need to expand your clinic offer is already here.
                 </p>
 
-                <a href="#" class="button button__cta desktop-only">VIEW PRODUCTS</a>
+                <a href="<?php echo get_permalink(get_page_by_title( 'Products' )) ?>" class="button button__cta desktop-only">VIEW PRODUCTS</a>
             </div>
 
         </div>
@@ -71,7 +71,7 @@
         </div>
 
 
-        <a href="#" class="button button__cta mobile-only">VIEW PRODUCTS</a>
+        <a href="<?php echo get_permalink(get_page_by_title( 'Products' )) ?>" class="button button__cta mobile-only">VIEW PRODUCTS</a>
 
     </div>
 

@@ -4,10 +4,14 @@
 	top: 0;
 	left: 0;
 	height: 100%;
-	min-height: 100vh; //fallback
-	min-height: calc(
-		var(--fullVH)
-	); // height depends on browsers panel on the top
+	// min-height: 100vh; //fallback
+	// min-height: calc(
+	// 	var(--fullVH)
+	// ); // height depends on browsers panel on the top
+
+	min-height: 100vh;
+	height: 100%;
+	height: -webkit-fill-available;
 	width: 100%;
 	transform: translateX(200%);
 	transition: 0.8s ease-in-out;

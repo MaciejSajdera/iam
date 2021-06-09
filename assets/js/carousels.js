@@ -72,10 +72,12 @@ const initSwiper = () => {
 		}
 	);
 
-	const allSwipersH = document.querySelectorAll(".swiper-container-h");
+	const allSwipersHmobile = document.querySelectorAll(
+		".swiper-container-h-mobile"
+	);
 
-	[...allSwipersH].map((swiperH, i) => {
-		new Swiper(`.swiper-container-h--${i}`, {
+	[...allSwipersHmobile].map((swiperH, i) => {
+		new Swiper(`.swiper-container-h-mobile--${i}`, {
 			centeredSlides: true,
 			slidesPerView: 1,
 			initialSlide: 0,
@@ -85,31 +87,18 @@ const initSwiper = () => {
 			effect: "fade",
 
 			pagination: {
-				el: `.swiper-pagination-h--${i}`,
+				el: `.swiper-pagination-h-mobile--${i}`,
 				clickable: true
 			}
 		});
 	});
 
-	// var swiperH = new Swiper(".swiper-container-h", {
-	// 	centeredSlides: true,
-	// 	slidesPerView: 1,
-	// 	initialSlide: 0,
-	// 	grabCursor: true,
-	// 	// observer: true,
-	// 	// observeParents: true,
-	// 	effect: "fade",
+	const allSwipersVmobile = document.querySelectorAll(
+		".swiper-container-v-mobile"
+	);
 
-	// 	pagination: {
-	// 		el: ".swiper-pagination-h--1",
-	// 		clickable: true
-	// 	}
-	// });
-
-	const allSwipersV = document.querySelectorAll(".swiper-container-v");
-
-	[...allSwipersV].map((swiperV, i) => {
-		new Swiper(`.swiper-container-v--${i}`, {
+	[...allSwipersVmobile].map((swiperV, i) => {
+		new Swiper(`.swiper-container-v-mobile--${i}`, {
 			direction: "vertical",
 			centeredSlides: true,
 			slidesPerView: 1,
@@ -121,7 +110,7 @@ const initSwiper = () => {
 			allowTouchMove: false,
 
 			pagination: {
-				el: `.swiper-pagination-v--${i}`,
+				el: `.swiper-pagination-v-mobile--${i}`,
 				clickable: true,
 
 				renderBullet: function(index, className) {
@@ -135,57 +124,115 @@ const initSwiper = () => {
 		});
 	});
 
-	document
-		.querySelectorAll(".swiper-slide-active .swiper-slide-active")
-		.forEach(productImage => {
-			productImage.onclick = function() {
-				console.log(productImage.style.backgroundImage);
-				let myUrl = String.raw`${productImage.style.backgroundImage}`;
+	const allSwipersHdesktop = document.querySelectorAll(
+		".swiper-container-h-desktop"
+	);
 
-				const markup = `
-				<div style="background-image: ${myUrl}">
+	[...allSwipersHdesktop].map((swiperH, i) => {
+		new Swiper(`.swiper-container-h-desktop--${i}`, {
+			centeredSlides: true,
+			slidesPerView: 1,
+			initialSlide: 0,
+			grabCursor: true,
+			// observer: true,
+			// observeParents: true,
+			effect: "fade",
 
-				</div>
-				`;
-
-				// const closeButton = document.createElement("A");
-				// closeButton.classList.add("close-lightbox");
-
-				// markup.appendChild(closeButton);
-
-				const instance = basicLightbox.create(markup, {
-					// onShow: instance => {
-					// 	instance.element().querySelector("a").onclick = instance.close;
-					// }
-				});
-
-				instance.show();
-			};
+			pagination: {
+				el: `.swiper-pagination-h-desktop--${i}`,
+				clickable: true
+			}
 		});
+	});
 
-	// var swiperV = new Swiper(".swiper-container-v", {
-	// 	direction: "vertical",
-	// 	centeredSlides: true,
-	// 	slidesPerView: 1,
-	// 	initialSlide: 0,
-	// 	grabCursor: true,
-	// 	observer: true,
-	// 	observeParents: true,
-	// 	effect: "fade",
+	const allSwipersVdesktop = document.querySelectorAll(
+		".swiper-container-v-desktop"
+	);
 
-	// 	pagination: {
-	// 		el: ".swiper-pagination-v",
-	// 		clickable: true,
+	[...allSwipersVdesktop].map((swiperV, i) => {
+		new Swiper(`.swiper-container-v-desktop--${i}`, {
+			direction: "vertical",
+			centeredSlides: true,
+			slidesPerView: 1,
+			initialSlide: 0,
+			grabCursor: true,
+			// observer: true,
+			// observeParents: true,
+			effect: "fade",
+			allowTouchMove: false,
 
-	// 		renderBullet: function(index, className) {
-	// 			let bulletColor = this.pagination.el.parentNode.querySelector(
-	// 				`.color-hex-value--${index}`
-	// 			).innerText;
+			pagination: {
+				el: `.swiper-pagination-v-desktop--${i}`,
+				clickable: true,
 
-	// 			return `<span style="background: ${bulletColor}" class="${className}"></span>`;
-	// 		}
-	// 	}
-	// });
+				renderBullet: function(index, className) {
+					let bulletColor = this.pagination.el.parentNode.querySelector(
+						`.color-hex-value--${index}`
+					).innerText;
+
+					return `<span style="background: ${bulletColor}" class="${className}"></span>`;
+				}
+			}
+		});
+	});
+
+	// document
+	// 	.querySelectorAll(".swiper-slide-active .swiper-slide-active")
+	// 	.forEach(productImage => {
+	// 		productImage.onclick = function() {
+	// 			console.log(productImage.style.backgroundImage);
+	// 			let myUrl = String.raw`${productImage.style.backgroundImage}`;
+
+	// 			const markup = `
+	// 			<div style="background-image: ${myUrl}">
+
+	// 			</div>
+	// 			`;
+
+	// 			// const closeButton = document.createElement("A");
+	// 			// closeButton.classList.add("close-lightbox");
+
+	// 			// markup.appendChild(closeButton);
+
+	// 			const instance = basicLightbox.create(markup, {
+	// 				// onShow: instance => {
+	// 				// 	instance.element().querySelector("a").onclick = instance.close;
+	// 				// }
+	// 			});
+
+	// 			instance.show();
+	// 		};
+	// 	});
+
+	var productsPageMobileSwiper = new Swiper(
+		".swiper-container-products-mobile",
+		{
+			direction: "horizontal",
+			loop: false,
+			// parallax: true,
+			centeredSlides: true,
+			slidesPerView: 1,
+			initialSlide: 0,
+			speed: 1000,
+			autoplay: {
+				delay: 3000
+			},
+			grabCursor: true,
+			observer: true,
+			observeParents: true,
+			// breakpoints: {
+			// 	992: {
+			// 		slidesPerView: 1.5,
+			// 		centeredSlides: true
+			// 	}
+			// },
+
+			navigation: {
+				nextEl: ".swiper-button-next",
+				prevEl: ".swiper-button-prev"
+			}
+		}
+	);
 };
 
 export default initSwiper;

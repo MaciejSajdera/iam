@@ -45,16 +45,18 @@ document.addEventListener("DOMContentLoaded", () => {
 	// const body = document.querySelector("body");
 
 	setTimeout(() => {
-		// 	myPreloader.classList.add("my-preloader-off");
-		// 	page.classList.add("page-loaded");
-		// 	body.classList.add("body-loaded");
+		myPreloader.classList.add("my-preloader-off");
+		page.classList.add("page-loaded");
+		body.classList.add("body-loaded");
 	}, 1000);
 
-	// setTimeout(() => {
-	// 	myPreloader.classList.add("my-preloader-none");
+	setTimeout(() => {
+		page.classList.add("page-show");
+	}, 1200);
 
-	// 	page.classList.add("page-show");
-	// }, 1200);
+	setTimeout(() => {
+		myPreloader.classList.add("my-preloader-none");
+	}, 1300);
 
 	smoothscroll.polyfill();
 	scrollAnimations();
@@ -88,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	var scroller = {
 		target: document.querySelector("#scroll-container"),
-		ease: 0.06, // <= scroll speed
+		ease: 0.07, // <= scroll speed
 		endY: 0,
 		y: 0,
 		resizeRequest: 1,

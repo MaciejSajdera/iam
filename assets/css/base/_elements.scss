@@ -52,6 +52,7 @@ body {
 
 .body-loaded {
 	background: $color__background-body;
+	display: block !important;
 }
 
 blockquote,
@@ -156,7 +157,7 @@ table {
 	opacity: 1;
 
 	.preloader-content {
-		background: url(../dist/img/branding.png) no-repeat;
+		// background: url(../dist/img/branding.png) no-repeat;
 		display: block;
 		height: 5em;
 		width: 5em;
@@ -194,7 +195,7 @@ table {
 .site {
 	transition: all 0.3s ease-in;
 	// // display: none;
-	// opacity: 0;
+	opacity: 0;
 }
 
 .page-loaded {
@@ -317,8 +318,8 @@ table {
 			justify-content: center;
 			align-items: center;
 
-			height: 80%;
-			width: 80%;
+			height: 90%;
+			width: 90%;
 			background-position: center;
 			margin: auto;
 		}

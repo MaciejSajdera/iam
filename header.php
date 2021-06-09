@@ -20,14 +20,13 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> style="display: hidden">
 
-<!-- <div class="my-preloader">
+<div class="my-preloader">
 	<div class="preloader-content">
 	<?php echo get_custom_logo() ?>
 	</div>
-</div> -->
-
+</div>
 
 <?php wp_body_open(); ?>
 

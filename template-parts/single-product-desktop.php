@@ -13,13 +13,14 @@
 
                                     $index = 0;
 
-                                    echo '<div class="products__container">';
+                                    echo '<div class="products__container desktop-only">';
 
                                     while ( $products_query->have_posts() ) : $products_query->the_post();
 
-                                    $product_1 = get_field("product_1", get_the_ID());
+                                    $product_1 = get_field("product", get_the_ID());
 
-                                    $product_1_title = $product_1["title"];
+                                    $product_1_title_part_1 = $product_1["title_part_1"];
+                                    $product_1_title_part_2 = $product_1["title_part_2"];
                                     $product_1_description = $product_1["description"];
                                     $product_1_images = $product_1["images"];
                                     $product_color_variants = $product_1["color_variants"];
@@ -63,7 +64,7 @@
 
                                             echo '<div class="single-product__content-wrapper">';
 
-                                                echo '<h1>'. $product_1_title .'</h1>';
+                                                echo '<h1>'. $product_1_title_part_1 . ' <span class="font-outline__red">'. $product_1_title_part_2 .'</span></h1>';
 
                                                 echo '<div class="single-product__description">'. $product_1_description . '</div>';
 
@@ -74,10 +75,10 @@
 
                                                 <div class="swipers-wrapper">
 
-                                                        <div class="swiper-container swiper-container-h swiper-container-h--<?php echo $index ?>">
+                                                        <div class="swiper-container swiper-container-h-desktop swiper-container-h-desktop--<?php echo $index ?>">
                                                             <div class="swiper-wrapper">
                                                                 <div class="swiper-slide">
-                                                                    <div class="swiper-container swiper-container-v swiper-container-v--<?php echo $index ?>">
+                                                                    <div class="swiper-container swiper-container-v-desktop swiper-container-v-desktop--<?php echo $index ?>">
                                                                         <div class="swiper-wrapper">
 
                                                                             <div class="swiper-slide" style="background-image: url(<?php echo $product_1_image_1_color_1 ?>)"></div>
@@ -89,7 +90,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="swiper-slide">
-                                                                    <div class="swiper-container swiper-container-v swiper-container-v--<?php echo $index ?>">
+                                                                    <div class="swiper-container swiper-container-v-desktop swiper-container-v-desktop--<?php echo $index ?>">
                                                                         <div class="swiper-wrapper">
 
                                                                             <div class="swiper-slide" style="background-image: url(<?php echo $product_1_image_2_color_1 ?>)"></div>
@@ -101,7 +102,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="swiper-slide">
-                                                                    <div class="swiper-container swiper-container-v swiper-container-v--<?php echo $index ?>">
+                                                                    <div class="swiper-container swiper-container-v-desktop swiper-container-v-desktop--<?php echo $index ?>">
                                                                         <div class="swiper-wrapper">
 
                                                                             <div class="swiper-slide" style="background-image: url(<?php echo $product_1_image_3_color_1 ?>)"></div>
@@ -119,7 +120,7 @@
 
                                                 <!-- Add Pagination H -->
                                                 <div class="swiper-pagination-h__holder swiper-pagination-h--<?php echo $index ?>__holder">
-                                                    <div class="swiper-pagination swiper-pagination-h swiper-pagination-h--<?php echo $index ?>"></div>
+                                                    <div class="swiper-pagination swiper-pagination-h swiper-pagination-h-desktop--<?php echo $index ?>"></div>
                                                 </div>
 
                                                 <!-- Add Pagination V -->
@@ -128,7 +129,7 @@
                                                     <span class="color-hex-value color-hex-value--0"><?php echo $product_1_image_1_color_hex_1 ?></span>
                                                     <span class="color-hex-value color-hex-value--1"><?php echo $product_1_image_2_color_hex_2 ?></span>
                                                     <span class="color-hex-value color-hex-value--2"><?php echo $product_1_image_3_color_hex_3 ?></span>
-                                                    <div class="swiper-pagination swiper-pagination-v swiper-pagination-v--<?php echo $index ?>"></div>
+                                                    <div class="swiper-pagination swiper-pagination-v swiper-pagination-v-desktop--<?php echo $index ?>"></div>
                                                 </div>
 
                                             </span>
