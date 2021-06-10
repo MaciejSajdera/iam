@@ -81,9 +81,9 @@
                                                                     <div class="swiper-container swiper-container-v-desktop swiper-container-v-desktop--<?php echo $index ?>">
                                                                         <div class="swiper-wrapper">
 
-                                                                            <div class="swiper-slide" style="background-image: url(<?php echo $product_1_image_1_color_1 ?>)"></div>
-                                                                            <div class="swiper-slide" style="background-image: url(<?php echo $product_1_image_1_color_2 ?>)"></div>
-                                                                            <div class="swiper-slide" style="background-image: url(<?php echo $product_1_image_1_color_3 ?>)"></div>
+                                                                            <div class="swiper-slide image-slide" style="background-image: url(<?php echo $product_1_image_1_color_1 ?>)"></div>
+                                                                            <div class="swiper-slide image-slide" style="background-image: url(<?php echo $product_1_image_1_color_2 ?>)"></div>
+                                                                            <div class="swiper-slide image-slide" style="background-image: url(<?php echo $product_1_image_1_color_3 ?>)"></div>
 
                                                                         </div>
                                                                         
@@ -93,9 +93,9 @@
                                                                     <div class="swiper-container swiper-container-v-desktop swiper-container-v-desktop--<?php echo $index ?>">
                                                                         <div class="swiper-wrapper">
 
-                                                                            <div class="swiper-slide" style="background-image: url(<?php echo $product_1_image_2_color_1 ?>)"></div>
-                                                                            <div class="swiper-slide" style="background-image: url(<?php echo $product_1_image_2_color_2 ?>)"></div>
-                                                                            <div class="swiper-slide" style="background-image: url(<?php echo $product_1_image_2_color_3 ?>)"></div>
+                                                                            <div class="swiper-slide image-slide" style="background-image: url(<?php echo $product_1_image_2_color_1 ?>)"></div>
+                                                                            <div class="swiper-slide image-slide" style="background-image: url(<?php echo $product_1_image_2_color_2 ?>)"></div>
+                                                                            <div class="swiper-slide image-slide" style="background-image: url(<?php echo $product_1_image_2_color_3 ?>)"></div>
 
                                                                         </div>
 
@@ -105,9 +105,9 @@
                                                                     <div class="swiper-container swiper-container-v-desktop swiper-container-v-desktop--<?php echo $index ?>">
                                                                         <div class="swiper-wrapper">
 
-                                                                            <div class="swiper-slide" style="background-image: url(<?php echo $product_1_image_3_color_1 ?>)"></div>
-                                                                            <div class="swiper-slide" style="background-image: url(<?php echo $product_1_image_3_color_2 ?>)"></div>
-                                                                            <div class="swiper-slide" style="background-image: url(<?php echo $product_1_image_3_color_3 ?>)"></div>
+                                                                            <div class="swiper-slide image-slide" style="background-image: url(<?php echo $product_1_image_3_color_1 ?>)"></div>
+                                                                            <div class="swiper-slide image-slide" style="background-image: url(<?php echo $product_1_image_3_color_2 ?>)"></div>
+                                                                            <div class="swiper-slide image-slide" style="background-image: url(<?php echo $product_1_image_3_color_3 ?>)"></div>
 
                                                                         </div>
 

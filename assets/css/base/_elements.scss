@@ -52,7 +52,8 @@ body {
 
 .body-loaded {
 	background: $color__background-body;
-	display: block !important;
+	// display: block !important;
+	visibility: visible !important;
 }
 
 blockquote,
@@ -200,6 +201,7 @@ table {
 
 .page-loaded {
 	display: block;
+	visibility: visible !important;
 }
 
 .page-show {
@@ -281,7 +283,7 @@ table {
 
 	&__red {
 		color: transparent !important;
-		-webkit-text-stroke: 1px $color__custom-red;
+		-webkit-text-stroke: 2px $color__custom-red;
 	}
 }
 
@@ -526,7 +528,17 @@ table {
 	transition: transform 0.4s ease;
 	z-index: 1;
 	will-change: transform;
+
+	.product-wrapper {
+		padding: 2em;
+	}
+
+	p {
+		color: white;
+		text-align: center;
+	}
 }
+
 .basicLightbox__placeholder > iframe:first-child:last-child,
 .basicLightbox__placeholder > img:first-child:last-child,
 .basicLightbox__placeholder > video:first-child:last-child {
@@ -558,4 +570,24 @@ table {
 }
 .basicLightbox--visible .basicLightbox__placeholder {
 	transform: scale(1);
+}
+
+.close-lightbox {
+	cursor: pointer;
+	position: absolute;
+	top: 0em;
+	right: 1em;
+	display: block;
+	width: 40px;
+	height: 40px;
+	z-index: 999;
+	background-image: url(../dist/svg/close_button.svg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	transition: all 0.5s ease-in;
+
+	@media screen and (min-width: 992px) {
+		top: 0em;
+		right: 0em;
+	}
 }

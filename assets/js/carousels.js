@@ -172,37 +172,48 @@ const initSwiper = () => {
 
 					return `<span style="background: ${bulletColor}" class="${className}"></span>`;
 				}
+			},
+
+			on: {
+				slideChange: function() {
+					console.log(this);
+				}
 			}
 		});
 	});
 
-	// document
-	// 	.querySelectorAll(".swiper-slide-active .swiper-slide-active")
-	// 	.forEach(productImage => {
-	// 		productImage.onclick = function() {
-	// 			console.log(productImage.style.backgroundImage);
-	// 			let myUrl = String.raw`${productImage.style.backgroundImage}`;
+	document.querySelectorAll(".image-slide").forEach(productImage => {
+		productImage.onclick = function() {
+			let myUrl = productImage.style.backgroundImage
+				.slice(4, -1)
+				.replace(/"/g, "");
 
-	// 			const markup = `
-	// 			<div style="background-image: ${myUrl}">
+			console.log(myUrl);
 
-	// 			</div>
-	// 			`;
+			const markup = document.createElement("DIV");
+			const wrapper = document.createElement("DIV");
+			const myImg = document.createElement("IMG");
+			const closeButton = document.createElement("A");
 
-	// 			// const closeButton = document.createElement("A");
-	// 			// closeButton.classList.add("close-lightbox");
+			wrapper.classList.add("markup-wrapper");
+			wrapper.style.padding = "2em";
+			myImg.setAttribute("src", myUrl);
+			myImg.style.borderRadius = "25px";
+			closeButton.classList.add("close-lightbox");
 
-	// 			// markup.appendChild(closeButton);
+			markup.appendChild(closeButton);
+			markup.appendChild(wrapper);
+			wrapper.appendChild(myImg);
 
-	// 			const instance = basicLightbox.create(markup, {
-	// 				// onShow: instance => {
-	// 				// 	instance.element().querySelector("a").onclick = instance.close;
-	// 				// }
-	// 			});
+			const instance = basicLightbox.create(markup, {
+				onShow: instance => {
+					instance.element().querySelector("a").onclick = instance.close;
+				}
+			});
 
-	// 			instance.show();
-	// 		};
-	// 	});
+			instance.show();
+		};
+	});
 
 	var productsPageMobileSwiper = new Swiper(
 		".swiper-container-products-mobile",

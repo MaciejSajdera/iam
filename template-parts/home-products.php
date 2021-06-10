@@ -44,28 +44,36 @@
             <span class="line line__horizontal line--horizontal-3"></span>
             <span class="line line__horizontal line--horizontal-4"></span>
 
+            
             <span class="product-holder red-rectangle">
-                <img src="<?php echo $product_image_1 ?>" alt="">
-                <p> <?php echo $product_title_1 ?></p>
+                <div class="product-wrapper">
+                    <img src="<?php echo $product_image_1 ?>" alt="">
+                    <p> <?php echo $product_title_1 ?></p>
+                </div>
             </span>
 
             <span class="product-holder model-x3">
-                <img src="<?php echo $product_image_2 ?>" alt="">
-                <p> <?php echo $product_title_2 ?></p>
+                <div class="product-wrapper">
+                    <img src="<?php echo $product_image_2 ?>" alt="">
+                    <p> <?php echo $product_title_2 ?></p>
+                </div>
             </span>
 
             <span class="product-holder model-sail">
-
-                <span class="image-holder">
-                    <img src="<?php echo $product_image_3 ?>" alt="">
-                </span>
+                <div class="product-wrapper">
+                    <span class="image-holder">
+                        <img src="<?php echo $product_image_3 ?>" alt="">
+                    </span>
                 
-                <p> <?php echo $product_title_3 ?></p>
+                    <p> <?php echo $product_title_3 ?></p>
+                </div>
             </span>
 
             <span class="product-holder model-white">
-                <img src="<?php echo $product_image_4 ?>" alt="">
-                <p> <?php echo $product_title_4 ?></p>
+                <div class="product-wrapper">
+                    <img src="<?php echo $product_image_4 ?>" alt="">
+                    <p> <?php echo $product_title_4 ?></p>
+                </div>
             </span>
 
         </div>

@@ -20,7 +20,7 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?> style="display: hidden">
+<body <?php body_class(); ?>>
 
 <div class="my-preloader">
 	<div class="preloader-content">
@@ -113,7 +113,7 @@
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 
-<div id="page" class="site viewport">
+<div id="page" class="site viewport" style="visibility: hidden">
 
 <div id="scroll-container" class="scroll-container">
 	

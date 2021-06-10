@@ -6,6 +6,7 @@ import scrollAnimations from "./scrollAnimations.js";
 import isElementInViewport from "./helperFunctions.js";
 import { gsap, TweenLite } from "gsap";
 import { CSSPlugin } from "gsap/CSSPlugin";
+import * as basicLightbox from "basiclightbox";
 
 /* DOM Measurement for better RWD */
 
@@ -47,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	setTimeout(() => {
 		myPreloader.classList.add("my-preloader-off");
 		page.classList.add("page-loaded");
-		body.classList.add("body-loaded");
+		document.querySelector("body").classList.add("body-loaded");
 	}, 1000);
 
 	setTimeout(() => {
@@ -90,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	var scroller = {
 		target: document.querySelector("#scroll-container"),
-		ease: 0.07, // <= scroll speed
+		ease: 0.1, // <= scroll speed
 		endY: 0,
 		y: 0,
 		resizeRequest: 1,
@@ -109,6 +110,8 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 
 		window.addEventListener("load", onLoad);
+
+		// onLoad()
 
 		function onLoad() {
 			updateScroller();
@@ -296,11 +299,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	/* Scroll Down Button */
-
-	const welcomeViewSection = document.querySelector(".welcome-view");
 	const scrollDownButton = document.querySelector(".welcome-view__scroll-down");
-
-	const secondSection = document.querySelector("#scroll-target");
 
 	// const smoothScrollToTarget = (trigger, target) => {
 	// 	const distanceToScroll =
@@ -341,22 +340,46 @@ document.addEventListener("DOMContentLoaded", () => {
 			});
 		});
 
+	/* 	Products */
+
+	const allProductsHome = document.querySelectorAll(
+		".home-products .product-holder"
+	);
+
+	allProductsHome &&
+		allProductsHome.forEach(product => {
+			product.addEventListener("click", () => {
+				let markup = product.cloneNode(true);
+
+				const closeButton = document.createElement("A");
+				closeButton.classList.add("close-lightbox");
+
+				markup.appendChild(closeButton);
+
+				// this.closest(".swiper-wrapper").childNodes.forEach(node => {
+				// 	return `<div></div>`;
+				// });
+
+				const instance = basicLightbox.create(markup, {
+					onShow: instance => {
+						instance.element().querySelector("a").onclick = instance.close;
+					}
+				});
+
+				instance.show();
+			});
+		});
+
 	/* Testimonials */
 
 	initSwiper();
 
 	/* Footer */
-	const subscribeWrapper = document.querySelector(".subscribe-info__subscribe");
-	const subscribeButton = document.querySelector(".subscribe-info .button");
-
-	isElementInViewport(subscribeButton)
-		? (subscribeButton.classList.add("button-slided"),
-		  subscribeWrapper.classList.add("subscribe-info__subscribe--in-viewport"))
-		: "";
 
 	const scrollUpButton = document.querySelector(".footer__scroll-up");
 
-	scrollUpButton.addEventListener("click", () => {
-		window.scrollTo({ top: 0, behavior: "smooth" });
-	});
+	scrollUpButton &&
+		scrollUpButton.addEventListener("click", () => {
+			window.scrollTo({ top: 0, behavior: "smooth" });
+		});
 });
