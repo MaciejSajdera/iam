@@ -67,6 +67,7 @@
     "basiclightbox": "^5.0.4",
     "gsap": "^3.6.1",
     "smoothscroll-polyfill": "^0.4.4",
-    "swiper": "^6.7.0"
+    "swiper": "^6.7.0",
+    "video.js": "^7.12.3"
   }
 }

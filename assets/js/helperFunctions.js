@@ -51,7 +51,81 @@ export class isElementInterSecting {
 	}
 }
 
+export class isElementInterSectingNoThreshold {
+	constructor(element, doAction, undoAction) {
+		this.element = element;
+		this.doAction = doAction;
+		this.undoAction = undoAction;
+
+		if ("IntersectionObserver" in window) {
+			// IntersectionObserver Supported
+			let config = {
+				root: null,
+				rootMargin: "0px",
+				threshold: 0.1
+			};
+
+			let observer = new IntersectionObserver(onChange, config);
+
+			observer.observe(element);
+			function onChange(changes, observer) {
+				changes.forEach(change => {
+					console.log(change);
+
+					if (change.isIntersecting) {
+						doAction(change.target);
+					}
+					if (!change.isIntersecting) {
+						undoAction(change.target);
+					}
+				});
+			}
+		} else {
+			// IntersectionObserver NOT Supported
+			// action(element);
+			return;
+		}
+	}
+}
+
 export class isElementAtTopOfViewport {
+	constructor(element, doAction, undoAction) {
+		this.element = element;
+		this.doAction = doAction;
+		this.undoAction = undoAction;
+
+		if ("IntersectionObserver" in window) {
+			// IntersectionObserver Supported
+			let config = {
+				root: null,
+				rootMargin: "0px",
+				threshold: 0.5
+			};
+
+			let observer = new IntersectionObserver(onChange, config);
+
+			observer.observe(element);
+
+			function onChange(changes, observer) {
+				changes.forEach(change => {
+					console.log(change);
+
+					if (change.isIntersecting) {
+						doAction(change.target);
+					}
+					if (!change.isIntersecting) {
+						undoAction(change.target);
+					}
+				});
+			}
+		} else {
+			// IntersectionObserver NOT Supported
+			return;
+		}
+	}
+}
+
+export class isElementLeavingViewport {
 	constructor(element, doAction, undoAction) {
 		this.element = element;
 		this.doAction = doAction;

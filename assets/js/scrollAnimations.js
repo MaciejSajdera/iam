@@ -1,7 +1,9 @@
 import {
 	isElementInViewport,
 	isElementInterSecting,
-	isElementAtTopOfViewport
+	isElementAtTopOfViewport,
+	isElementLeavingViewport,
+	isElementInterSectingNoThreshold
 } from "./helperFunctions.js";
 
 export default function scrollAnimations() {
@@ -21,9 +23,15 @@ export default function scrollAnimations() {
 	clinicsHolder &&
 		new isElementInterSecting(clinicsHolder, animateCenterPointStructure);
 
-	/*Section: 'How does it work' */
+	/*Section: 'How does it work - Home  Page' */
 
-	const howDoesItWorkStructureDesktop = document.querySelector(
+	const howDoesItWorkHomePage = document.querySelector(
+		".how-does-it-work--home-page"
+	);
+
+	//Desktop
+
+	const howDoesItWorkStructureDesktop = howDoesItWorkHomePage?.querySelector(
 		".how-does-it-work__structure--desktop"
 	);
 
@@ -39,17 +47,20 @@ export default function scrollAnimations() {
 		howDoesItWorkStructureDesktop.classList.add(
 			"how-does-it-work--in-viewport"
 		);
-		[...stepBoxesDesktop].map((stepBox, i) => {
-			stepBox.style.transition = `all 0.5s ease-in`;
-			stepBox.style.transitionDelay = `${1 + i}s`;
-			stepBox.classList.add("text__red");
-		});
+		// [...stepBoxesDesktop].map((stepBox, i) => {
+		// 	stepBox.style.transition = `all 0.5s ease-in`;
+		// 	stepBox.style.transitionDelay = `${1 + i}s`;
+		// 	stepBox.classList.add("text__red");
+		// });
 	};
 
-	stepBoxesDesktop &&
+	howDoesItWorkHomePage &&
+		stepBoxesDesktop &&
 		new isElementInterSecting(stepBoxesDesktop[0], animateHowDoesItWorkDesktop);
 
-	const howDoesItWorkStructureMobile = document.querySelector(
+	//Mobile
+
+	const howDoesItWorkStructureMobile = howDoesItWorkHomePage?.querySelector(
 		".how-does-it-work__structure--mobile"
 	);
 
@@ -70,12 +81,157 @@ export default function scrollAnimations() {
 		});
 	};
 
-	stepBoxesMobile &&
+	howDoesItWorkHomePage &&
+		stepBoxesMobile &&
 		new isElementInterSecting(stepBoxesMobile[0], animateHowDoesItWorkMobile);
+
+	/*Subpage: 'How does it work' */
+
+	const howDoesItWorkSubpage = document.querySelector(
+		".how-does-it-work--subpage"
+	);
+
+	//Desktop
+
+	const howDoesItWorkSubpageStructureDesktop = howDoesItWorkSubpage?.querySelector(
+		".how-does-it-work__structure--desktop"
+	);
+
+	const howDoesItWorkSubpageDescriptionStickyContent = document.querySelector(
+		".how-does-it-work__description--sticky-content"
+	);
+
+	const howDoesItWorkSubpageDescription = howDoesItWorkSubpage?.querySelector(
+		".how-does-it-work__description"
+	);
+
+	const stepPathsSubpageDesktop = howDoesItWorkSubpageStructureDesktop?.querySelectorAll(
+		".step__path path"
+	);
+
+	const stepBoxesSubpageDesktop = howDoesItWorkSubpageStructureDesktop?.querySelectorAll(
+		".step__box"
+	);
+
+	const animateHowDoesItWorkSubpageDesktop = () => {
+		howDoesItWorkSubpageStructureDesktop.classList.add(
+			"how-does-it-work--in-viewport"
+		);
+
+		let getDescriptionPosition = howDoesItWorkSubpageDescription.getBoundingClientRect()
+			.y;
+
+		howDoesItWorkSubpageDescriptionStickyContent.style.top = `${getDescriptionPosition}px`;
+
+		// [...stepBoxesDesktop].map((stepBox, i) => {
+		// 	stepBox.style.transition = `all 0.5s ease-in`;
+		// 	stepBox.style.transitionDelay = `${1 + i}s`;
+		// 	stepBox.classList.add("text__red");
+		// });
+	};
+
+	stepBoxesSubpageDesktop &&
+		new isElementInterSecting(
+			stepBoxesSubpageDesktop[0],
+			animateHowDoesItWorkSubpageDesktop
+		);
+
+	const nextSection = document.querySelector(".how-does-it-work-video");
+
+	const stopStickyElement = () => {
+		howDoesItWorkSubpageDescriptionStickyContent.style.opacity = 0;
+		setTimeout(() => {
+			howDoesItWorkSubpageDescriptionStickyContent.style.display = "none";
+		}, 300);
+	};
+
+	const startStickyElement = () => {
+		howDoesItWorkSubpageDescriptionStickyContent.style.display = "block";
+
+		setTimeout(() => {
+			howDoesItWorkSubpageDescriptionStickyContent.style.opacity = 1;
+		}, 300);
+	};
+
+	stepBoxesSubpageDesktop &&
+		new isElementInterSectingNoThreshold(
+			nextSection,
+			stopStickyElement,
+			startStickyElement
+		);
+
+	//Mobile
+
+	const howDoesItWorkSubpageStructureMobile = howDoesItWorkSubpage?.querySelector(
+		".how-does-it-work__structure--mobile"
+	);
+
+	// const howDoesItWorkSubpageDescriptionStickyContent = document.querySelector(
+	// 	".how-does-it-work__description--sticky-content"
+	// );
+
+	// const howDoesItWorkSubpageDescription = howDoesItWorkSubpage?.querySelector(
+	// 	".how-does-it-work__description"
+	// );
+
+	const stepPathsSubpageMobile = howDoesItWorkSubpageStructureMobile?.querySelectorAll(
+		".step__path path"
+	);
+
+	const stepBoxesSubpageMobile = howDoesItWorkSubpageStructureMobile?.querySelectorAll(
+		".step__box"
+	);
+
+	const animateHowDoesItWorkSubpageMobile = () => {
+		howDoesItWorkSubpageStructureMobile.classList.add(
+			"how-does-it-work--in-viewport"
+		);
+
+		let getDescriptionPosition = howDoesItWorkSubpageDescription.getBoundingClientRect()
+			.y;
+
+		howDoesItWorkSubpageDescriptionStickyContent.style.top = `${getDescriptionPosition}px`;
+
+		// [...stepBoxesDesktop].map((stepBox, i) => {
+		// 	stepBox.style.transition = `all 0.5s ease-in`;
+		// 	stepBox.style.transitionDelay = `${1 + i}s`;
+		// 	stepBox.classList.add("text__red");
+		// });
+	};
+
+	stepBoxesSubpageMobile &&
+		new isElementInterSecting(
+			stepBoxesSubpageMobile[0],
+			animateHowDoesItWorkSubpageMobile
+		);
+
+	// const howDoesItWorkStructureMobile = document.querySelector(
+	// 	".how-does-it-work__structure--mobile"
+	// );
+
+	// const stepPathsMobile = howDoesItWorkStructureMobile?.querySelectorAll(
+	// 	".step__path path"
+	// );
+
+	// const stepBoxesMobile = howDoesItWorkStructureMobile?.querySelectorAll(
+	// 	".step__box"
+	// );
+
+	// const animateHowDoesItWorkMobile = () => {
+	// 	howDoesItWorkStructureMobile.classList.add("how-does-it-work--in-viewport");
+	// 	[...stepBoxesMobile].map((stepBox, i) => {
+	// 		stepBox.style.transition = `all 0.5s ease-in`;
+	// 		stepBox.style.transitionDelay = `${1 + i}s`;
+	// 		stepBox.classList.add("text__red");
+	// 	});
+	// };
+
+	// stepBoxesMobile &&
+	// 	new isElementInterSecting(stepBoxesMobile[0], animateHowDoesItWorkMobile);
 
 	/*Section: 'How AI helps us' */
 
-	const howAiHelpsUsTrigger = document.querySelector(".how-ai__description");
+	const howAiHelpsUsTrigger = document.querySelector(".how-ai__title");
 	const howAiHelpsUs = document.querySelector(".how-ai__structure__wrapper");
 
 	const animateHowAiHelpsUs = () => {
@@ -93,9 +249,8 @@ export default function scrollAnimations() {
 
 	allProductsPage &&
 		allProductsPage.forEach(product => {
-			const animateProduct = me => {
-				me.classList.add("animate-product");
-				console.log(me);
+			const animateProduct = node => {
+				node.classList.add("animate-product");
 			};
 			new isElementInterSecting(product, animateProduct);
 		});

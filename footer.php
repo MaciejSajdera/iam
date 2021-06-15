@@ -143,6 +143,7 @@
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
   </div> <!-- #scroll-container -->
+ </div> <!-- viewport -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

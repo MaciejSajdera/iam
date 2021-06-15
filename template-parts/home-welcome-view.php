@@ -24,8 +24,36 @@ $welcome_view__description = $welcome_view['description'];
         </div>
 
         <div class="welcome-view__images">
-            <div class="ipad-image" style="background-image: url(<?php echo $welcome_view__ipad_image ?>); background-repeat: no-repeat;">
-                <div class="content-image" style="background-image: url(<?php echo $welcome_view__content_image ?>); background-repeat: no-repeat;"></div>
+            <div class="ipad-image">
+
+            <img src="<?php echo $welcome_view__ipad_image ?>" />
+
+
+                <div class="content-image" >
+                    <div class="video-wrapper">
+
+                        <video
+                            id="my-video"
+                            class="video-js vjs-static-controls vjs-lime"
+                            controls
+                            playsinline
+                            preload="auto"
+                            poster="<?php echo get_field('video_thumbnail', get_page_by_title( 'How does it work' )) ?>"
+                            data-setup="{}"
+                        >
+                            <source src="<?php echo get_field('video', get_page_by_title( 'How does it work' )) ?>" type="video/mp4" />
+                            <!-- <source src="MY_VIDEO.webm" type="video/webm" /> -->
+                            <p class="vjs-no-js">
+                            To view this video please enable JavaScript, and consider upgrading to a
+                            web browser that
+                            <a href="https://videojs.com/html5-video-support/" target="_blank"
+                                >supports HTML5 video</a
+                            >
+                            </p>
+                        </video>
+
+                    </div>
+                </div>
             </div>
         </div>
 

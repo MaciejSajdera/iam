@@ -7,6 +7,8 @@ import isElementInViewport from "./helperFunctions.js";
 import { gsap, TweenLite } from "gsap";
 import { CSSPlugin } from "gsap/CSSPlugin";
 import * as basicLightbox from "basiclightbox";
+import videojs from "video.js";
+import "video.js/dist/video-js.min.css";
 
 /* DOM Measurement for better RWD */
 
@@ -373,6 +375,11 @@ document.addEventListener("DOMContentLoaded", () => {
 	/* Testimonials */
 
 	initSwiper();
+
+	/* How Does It Work */
+	const myVideo = document.querySelector(".video-js");
+
+	myVideo && videojs(myVideo);
 
 	/* Footer */
 
