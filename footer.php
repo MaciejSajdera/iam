@@ -27,7 +27,12 @@
 			<div class="subscribe-info__social-and-subscribe">
 
 				<div class="subscribe-info__subscribe">
-					<input type="email" id="email" name="email" class="input input__red-outline" placeholder="Your email address*"></input><button class="button button__cta">SUBSCRIBE</button>
+
+					<?php
+						echo do_shortcode('[contact-form-7 id="293" title="Subscribe"]')
+					?>
+					<!-- <input type="email" id="email" name="email" class="input input__red-outline" placeholder="Your email address*"></input>
+					<button class="button button__cta">SUBSCRIBE</button> -->
 				</div>
 
 				<div class="subscribe-info__social">
@@ -85,7 +90,6 @@
 					<div class="site-info__item site-info--address">
 				
 						<p class="site-info__item-title">Address</p>
-
 						<p class="site-info__item-content">Dworska 11/2</p>
 						<p class="site-info__item-content">	25-555 Kraków </p>
 						<p class="site-info__item-content">	Polska </p>

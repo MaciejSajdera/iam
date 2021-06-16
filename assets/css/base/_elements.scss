@@ -281,6 +281,10 @@ table {
 	color: transparent !important;
 	-webkit-text-stroke: 1px #000;
 
+	@media screen and (min-width: 992px) {
+		-webkit-text-stroke: 2px #000;
+	}
+
 	&__red {
 		color: transparent !important;
 		-webkit-text-stroke: 2px $color__custom-red;

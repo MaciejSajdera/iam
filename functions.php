@@ -133,8 +133,8 @@ add_action( 'widgets_init', 'am_widgets_init' );
  * Enqueue scripts and styles.
  */
 function am_scripts() {
-	wp_enqueue_style( 'am-style', get_template_directory_uri() . '/dist/css/style.css', array(), '3.9');
-	wp_enqueue_script( 'am-app', get_template_directory_uri() . '/dist/js/main.js', array(), '3.9', true );
+	wp_enqueue_style( 'am-style', get_template_directory_uri() . '/dist/css/style.css', array(), '6.7');
+	wp_enqueue_script( 'am-app', get_template_directory_uri() . '/dist/js/main.js', array(), '6.7', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -146,6 +146,16 @@ function wpb_add_google_fonts() {
 	wp_enqueue_style( 'wpb-google-fonts', 'https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;800&display=swap', false );
 }
 add_action( 'wp_enqueue_scripts', 'wpb_add_google_fonts' );
+
+
+function defer_parsing_of_js( $url ) {
+    if ( is_user_logged_in() ) return $url; //don't break WP Admin
+    if ( FALSE === strpos( $url, '.js' ) ) return $url;
+    if ( strpos( $url, 'jquery' ) ) return $url;
+	if ( strpos( $url, 'wp-includes' ) ) return $url;
+    return str_replace( ' src', ' defer src', $url );
+}
+add_filter( 'script_loader_tag', 'defer_parsing_of_js', 10 );
 
 
 /* Unregister categories so they don't show on google seach */

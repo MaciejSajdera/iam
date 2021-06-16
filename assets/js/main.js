@@ -381,6 +381,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	myVideo && videojs(myVideo);
 
+	const allStepIcons = document.querySelectorAll(".step__icon");
+
+	allStepIcons.forEach(icon => {
+		icon.addEventListener("mouseover", function() {
+			// this.closest(".step").querySelector(".step__box").style.color = "#be272e";
+			this.closest(".step")
+				.querySelector(".step__box")
+				.classList.toggle("text__red");
+		});
+	});
+
 	/* Footer */
 
 	const scrollUpButton = document.querySelector(".footer__scroll-up");

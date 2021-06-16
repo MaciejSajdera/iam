@@ -58,7 +58,11 @@ section {
 	}
 
 	& > * {
-		padding: 0 3rem;
+		padding: 0 2rem;
+
+		@media screen and (min-width: 361px) {
+			padding: 0 3rem;
+		}
 
 		@media screen and (min-width: 992px) {
 			padding: 0 10rem;
@@ -68,8 +72,8 @@ section {
 
 .page-template-home-page-template {
 	.site-content {
-		padding-top: 5.5rem;
-		padding-top: var(--header-height);
+		// padding-top: 5.5rem;
+		// padding-top: var(--header-height);
 
 		@media screen and (min-width: 992px) {
 			padding-top: 0;
@@ -83,7 +87,11 @@ section {
 	// padding-top: var(--header-height);
 	position: relative;
 
-	@media screen and (min-width: 992px) {
+	@media screen and (max-width: 1024px) {
+		padding-bottom: 3rem;
+	}
+
+	@media screen and (min-width: 1024px) {
 		padding-top: 0;
 		// margin-top: var(--header-height);
 		height: calc(100vh - 5.5rem);
@@ -98,9 +106,13 @@ section {
 		flex-flow: column;
 
 		height: 100%;
-		padding-top: 3em;
 
-		@media screen and (min-width: 992px) {
+		@media screen and (max-width: 1024px) {
+			padding-top: 8em;
+		}
+
+		@media screen and (min-width: 1024px) {
+			padding-top: 3em;
 			display: grid;
 			grid-template-rows: 1fr 1fr 1fr 1fr;
 			grid-template-rows: 0.5fr 1fr 0.5fr 0.5fr 1fr;
@@ -117,7 +129,7 @@ section {
 		text-align: center;
 		padding: 0 0.5em;
 
-		@media screen and (max-width: 992px) {
+		@media screen and (max-width: 1024px) {
 			max-width: 400px;
 			margin: auto;
 		}
@@ -126,7 +138,7 @@ section {
 			padding: 0 1em;
 		}
 
-		@media screen and (min-width: 992px) {
+		@media screen and (min-width: 1024px) {
 			text-align: inherit;
 			padding: 0;
 
@@ -155,7 +167,7 @@ section {
 			padding: 0 1em;
 		}
 
-		@media screen and (min-width: 992px) {
+		@media screen and (min-width: 1024px) {
 			text-align: inherit;
 			padding: 0;
 
@@ -167,22 +179,26 @@ section {
 		p {
 			margin: auto;
 
-			@media screen and (min-width: 992px) {
+			@media screen and (min-width: 1024px) {
 				margin: 1em auto;
 			}
 		}
 	}
 
 	&__images {
-		@media screen and (max-width: 992px) {
+		max-height: 500px;
+		max-width: 800px;
+
+		@media screen and (max-width: 1024px) {
 			margin-bottom: 2rem;
 		}
 
-		@media screen and (min-width: 992px) {
+		@media screen and (min-width: 1024px) {
 			margin-bottom: 0.67em;
 			grid-column-start: 2;
 			grid-row-start: 2;
 			grid-row-end: 5;
+			justify-self: center;
 		}
 
 		.ipad-image,
@@ -208,8 +224,8 @@ section {
 
 		.content-image {
 			position: absolute;
-			height: 90%;
-			width: 85%;
+			height: 92%;
+			width: 82%;
 			left: 50%;
 			top: 50%;
 			transform: translate(-50%, -50%);
@@ -231,7 +247,7 @@ section {
 		display: flex;
 		justify-content: center;
 
-		@media screen and (min-width: 992px) {
+		@media screen and (min-width: 1024px) {
 			grid-column-start: 1;
 			grid-row-start: 4;
 			grid-row-end: 4;
@@ -242,7 +258,7 @@ section {
 		.button__cta {
 			margin: 1em auto;
 
-			@media screen and (min-width: 992px) {
+			@media screen and (min-width: 1024px) {
 				margin: initial;
 			}
 		}
@@ -250,7 +266,7 @@ section {
 
 	//common padding for desktop
 
-	@media screen and (min-width: 992px) {
+	@media screen and (min-width: 1024px) {
 		&__titles,
 		&__description,
 		&__cta-wrapper {
@@ -264,7 +280,7 @@ section {
 		bottom: 1.5em;
 		transform: translateX(-50%);
 
-		@media screen and (max-width: 992px) {
+		@media screen and (max-width: 1024px) {
 			display: none;
 		}
 	}
@@ -358,7 +374,7 @@ section {
 
 		&:hover {
 			.font-outline {
-				-webkit-text-stroke: 1px $color__custom-red;
+				-webkit-text-stroke: 2px $color__custom-red;
 			}
 		}
 
@@ -698,6 +714,8 @@ section {
 			transition-property: top;
 			transition-duration: 1s;
 			transition-timing-function: linear;
+			// animation-delay: 0s;
+			// animation-duration: 1s;
 		}
 
 		&--2 {
@@ -1206,7 +1224,7 @@ section {
 
 			.step__path {
 				@media screen and (max-width: 1200px) {
-					transform: translate(38px, -3px);
+					transform: translate(38px, -2px);
 				}
 
 				@media screen and (min-width: 1200px) {
@@ -1373,6 +1391,10 @@ section {
 			&__icon,
 			&__box {
 				cursor: pointer;
+
+				&:hover {
+					color: $color__custom-red;
+				}
 			}
 		}
 
@@ -1595,7 +1617,7 @@ section {
 			text-align: center;
 
 			@media screen and (max-width: 1200px) {
-				margin-bottom: 5em;
+				margin-bottom: 7rem;
 			}
 
 			@media screen and (max-width: 1375px) {
@@ -1618,7 +1640,7 @@ section {
 	&__structure {
 		text-align: center;
 		margin: auto;
-		margin-bottom: 9em;
+		margin-bottom: 7rem;
 
 		@media screen and (min-width: 1200px) {
 			grid-row-start: 2;
@@ -1630,13 +1652,17 @@ section {
 		}
 
 		&__wrapper {
-			height: 214px;
-			width: 214px;
 			margin: auto;
 			position: relative;
 			transition: all 0.5s ease-in-out;
 			transform: translate(0%, 200%);
 			opacity: 0;
+
+			height: 214px;
+			width: 214px;
+
+			@media screen and (min-width: 992px) {
+			}
 
 			@media screen and (min-width: 1200px) {
 				height: 300px;
@@ -1658,7 +1684,7 @@ section {
 			$wrapper-animation-length: 1s;
 			animation: slideUp 1s forwards;
 
-			div {
+			.how-ai__images-holder {
 				animation: slideUpLeftMobile 1s forwards;
 				animation-delay: 1s;
 
@@ -3195,12 +3221,12 @@ section {
 			border-bottom: 2px solid $color__grid-line;
 
 			@media screen and (max-width: 992px) {
-				min-height: 65vh;
+				height: 65vh;
 			}
 
 			@media screen and (min-width: 992px) {
 				margin: 70px 0;
-				min-height: 400px;
+				height: 400px;
 				grid-template-columns: 10% 40% 40% 10%;
 				grid-template-rows: 50% 50%;
 			}
@@ -3436,11 +3462,18 @@ section {
 //Testimonials Page
 
 .page-template-testimonials-page-template {
-	background: $color__background__semidark;
+	footer > * {
+		@media screen and (min-width: 992px) {
+			padding: 0 15rem;
+		}
+	}
 }
 
 .testimonials-page {
 	height: auto;
+	overflow: visible;
+	background: $color__background__dark;
+	padding: 0;
 
 	.swiper-container-testimonials-page {
 		padding: 4em 0;
@@ -3454,15 +3487,25 @@ section {
 		// 	padding: 0 0;
 		// }
 
+		// div > * {
+		// 	padding: 0 10rem;
+		// }
+
+		padding: 0 0 5rem;
+
 		&--upper {
-			padding: 6em 2em 2em;
+			padding: 6rem 1rem 5em;
 			max-width: 700px;
 			margin: auto;
 			text-align: center;
 			height: auto;
 
+			@media screen and (max-width: 992px) {
+				padding-bottom: 150px;
+			}
+
 			@media screen and (min-width: 992px) {
-				padding: 10em 1em 2em;
+				padding: 10rem 1rem 6rem;
 			}
 
 			svg {
@@ -3482,20 +3525,77 @@ section {
 		&--grid {
 			display: grid;
 			position: relative;
-			grid-template-columns: 10% 40% 40% 10%;
+			grid-template-columns: 60px 1fr 1fr 60px;
 			grid-template-rows: 50% 50%;
-			border-top: 2px solid $color__grid-line;
-			border-bottom: 2px solid $color__grid-line;
+			// border-top: none;
+			// border-bottom: none;
+			background: $color__background__semidark;
+			height: auto;
 
 			@media screen and (max-width: 992px) {
 				min-height: 65vh;
 			}
 
 			@media screen and (min-width: 992px) {
-				margin: 70px 0;
-				height: auto;
+				padding: 0 15rem;
+				margin: 0;
 				grid-template-columns: 10% 40% 40% 10%;
 				grid-template-rows: 35% 65%;
+			}
+
+			.line {
+				&__vertical {
+					@media screen and (max-width: 992px) {
+						background: transparent;
+
+						&:before {
+							height: 80px;
+							top: -50px;
+						}
+
+						&:after {
+							height: 80px;
+							bottom: -50px;
+						}
+					}
+
+					@media screen and (min-width: 992px) {
+						&:before {
+							height: 80px;
+							top: -60px;
+						}
+
+						&:after {
+							height: 80px;
+							bottom: -60px;
+						}
+					}
+				}
+
+				&--vertical-1 {
+					@media screen and (min-width: 992px) {
+						grid-column-start: 1;
+						grid-column-end: 1;
+					}
+				}
+
+				&--vertical-2 {
+					@media screen and (min-width: 992px) {
+						grid-column-start: 5;
+						grid-column-end: 5;
+					}
+				}
+
+				&__horizontal {
+					display: none;
+					grid-column-start: 1;
+					grid-column-end: 5;
+				}
+
+				&--horizontal-1 {
+					grid-row-start: 1;
+					// display: block;
+				}
 			}
 
 			.swiper-container-testimonials-page,
@@ -3528,11 +3628,11 @@ section {
 					grid-column-start: 1;
 					grid-column-end: 3;
 
-					padding: 0 1.5em;
+					// padding: 0 1.5em;
 
-					@media screen and (min-width: 992px) {
-						padding: 0 10em;
-					}
+					// @media screen and (min-width: 992px) {
+					// 	padding: 0 10em;
+					// }
 
 					p {
 						@include fluid-type($min_width, $max_width, 18px, 22px);
@@ -3541,16 +3641,17 @@ section {
 
 				&__image-holder {
 					max-width: 250px;
-					padding: 0 0 0 1.5em;
+					padding: 0 0 0 0;
 					width: 100%;
 
 					@media screen and (max-width: 992px) {
 						height: 50px;
 						margin-bottom: 1em;
+						display: none;
 					}
 
 					@media screen and (min-width: 992px) {
-						padding: 0 0 0 10em;
+						// padding: 0 0 0 10em;
 					}
 				}
 
@@ -3564,8 +3665,86 @@ section {
 						background-position: left;
 						background-size: contain;
 					}
+
+					img {
+						width: 100%;
+						height: 100%;
+					}
 				}
 			}
+
+			.swiper-button-prev,
+			.swiper-button-next {
+				@media screen and (max-width: 992px) {
+					display: block;
+					top: -35px;
+				}
+			}
+
+			.swiper-button-prev {
+				@media screen and (max-width: 992px) {
+					transform: rotate(90deg) scale(0.6);
+					left: 5px;
+				}
+
+				@media screen and (min-width: 992px) {
+					left: 7.5rem;
+				}
+			}
+
+			.swiper-button-next {
+				@media screen and (max-width: 992px) {
+					transform: rotate(-90deg) scale(0.6);
+					right: 5px;
+				}
+
+				@media screen and (min-width: 992px) {
+					right: 7.5rem;
+				}
+			}
+		}
+	}
+
+	.current-testimonial__logo-holder {
+		position: absolute;
+		top: -70px;
+		width: 100%;
+		text-align: center;
+
+		@media screen and (min-width: 992px) {
+			display: none;
+		}
+	}
+
+	.prev-slide-thumbnail-holder,
+	.next-slide-thumbnail-holder {
+		position: absolute;
+
+		img {
+			@media screen and (max-width: 992px) {
+				display: none;
+			}
+
+			width: 100px;
+			height: 50px;
+			transition: opacity 0.3s ease-in-out;
+		}
+	}
+
+	//note: container is rotated 90degs so left = top etc.
+	.prev-slide-thumbnail-holder {
+		transform: rotate(-90deg);
+		left: -6em;
+	}
+
+	.next-slide-thumbnail-holder {
+		transform: rotate(90deg);
+		right: -6em;
+	}
+
+	.swiper-button-disabled {
+		img {
+			opacity: 0;
 		}
 	}
 }
@@ -3586,6 +3765,10 @@ section {
 				display: none;
 			}
 
+			&__social-and-subscribe {
+				margin: auto;
+			}
+
 			@media screen and (min-width: 992px) {
 				display: none;
 			}
@@ -3600,7 +3783,7 @@ section {
 
 	.contact {
 		background: $color__background__dark;
-		padding-top: 12rem;
+		padding-top: 10rem;
 		padding-bottom: 8rem;
 		color: $color__text-white;
 

@@ -161,11 +161,12 @@ const initSwiper = () => {
 			};
 		});
 
-	var testimonialsPage = new Swiper(".swiper-container-testimonials", {
+	var testimonials = new Swiper(".swiper-container-testimonials", {
 		direction: "horizontal",
 		loop: false,
 		// parallax: true,
 		centeredSlides: true,
+		spaceBetween: 300,
 		slidesPerView: 1,
 		initialSlide: 0,
 		speed: 1000,
@@ -217,6 +218,72 @@ const initSwiper = () => {
 			}
 		}
 	);
+
+	const swiperPrevTestimonial = document.querySelector(
+		".swiper-prev-testimonial"
+	);
+	const swiperNextTestimonial = document.querySelector(
+		".swiper-next-testimonial"
+	);
+
+	swiperPrevTestimonial
+		? (swiperPrevTestimonial.querySelector("IMG").src = document.querySelector(
+				".prev-testimonial-thumbnail--0 img"
+		  ).src)
+		: "";
+
+	swiperNextTestimonial
+		? (swiperNextTestimonial.querySelector("IMG").src = document.querySelector(
+				".next-testimonial-thumbnail--0 img"
+		  ).src)
+		: "";
+
+	const currentTestimonialLogoMobile = document.querySelector(
+		".current-testimonial__logo-holder img"
+	);
+
+	let currentTestimonialLogo = document.querySelector(
+		".swiper-slide .single-testimony__image img"
+	);
+
+	currentTestimonialLogo
+		? (currentTestimonialLogoMobile.src = currentTestimonialLogo.src)
+		: "";
+
+	testimonialsPageSwiper.on("slideChange", function() {
+		console.log(testimonialsPageSwiper.activeIndex);
+
+		let count = testimonialsPageSwiper.activeIndex;
+
+		let allSlides = document.querySelectorAll(
+			".swiper-container-testimonials-page .swiper-slide"
+		);
+
+		let currentSlide = allSlides[count];
+		let currentSlideLogo = currentSlide.querySelector(
+			".single-testimony__image IMG"
+		).src;
+
+		let nextSlide = allSlides[count + 1] || allSlides[count];
+		let nextSlideLogo = nextSlide.querySelector(".single-testimony__image IMG")
+			.src;
+
+		let prevSlide = allSlides[count - 1] || allSlides[0];
+		let prevSlideLogo = prevSlide.querySelector(".single-testimony__image IMG")
+			.src;
+
+		currentTestimonialLogoMobile.src = currentSlideLogo;
+
+		swiperNextTestimonial.querySelector("IMG").src && nextSlideLogo
+			? (swiperNextTestimonial.querySelector("IMG").src = nextSlideLogo)
+			: "";
+
+		swiperPrevTestimonial.querySelector("IMG").src && prevSlideLogo
+			? (swiperPrevTestimonial.querySelector("IMG").src = prevSlideLogo)
+			: "";
+	});
+
+	/* 	Products */
 
 	const allSwipersHmobile = document.querySelectorAll(
 		".swiper-container-h-mobile"

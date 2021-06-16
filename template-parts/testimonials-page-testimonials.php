@@ -32,11 +32,20 @@
 
         <div class="testimonials__content--grid testimonials-page__content--grid">
 
+
+            <div class="current-testimonial__logo-holder">
+
+                <img src="" style="height: 50px; width: 100px;">
+
+            </div>
+
             <span class="line line__vertical line--vertical-1"></span>
             <span class="line line__vertical line--vertical-2"></span>
+
             <span class="line line__vertical line--vertical-3 desktop-only"></span>
 
             <span class="line line__horizontal line--horizontal-1"></span>
+            <span class="line line__horizontal line--horizontal-2"></span>
 
             <div class="swiper-container-testimonials-page">
 
@@ -52,17 +61,24 @@
 
                             $your_query = new WP_Query( $lookbook );
 
-
                            $count = 0; ?>
                             <?php if( $your_query->have_posts() ) :
 
                                     while ( $your_query->have_posts() ) : $your_query->the_post();
 
+                                        $prevPost = get_previous_post();
+
                                         echo '<div class="swiper-slide single-testimony">';
+
+                                            // if ( $count > 0 ) :
+
+                                            echo '<div class="prev-testimonial-thumbnail prev-testimonial-thumbnail--'.$count.'" style="display: none">' .get_the_post_thumbnail( $prevPost->ID ). '</div>';
+    
+                                            // endif;
 
                                             echo '<div class="single-testimony__image-holder">';
                                                 // echo '<img src="'.get_the_post_thumbnail_url().'">';
-                                                echo '<div class="single-testimony__image" style="background-image: url(' .get_the_post_thumbnail_url(). '); background-repeat: no-repeat;"></div>';
+                                                echo '<div class="single-testimony__image">' .get_the_post_thumbnail(). '</div>';
                                             echo '</div>';
 
                                             echo '<div class="single-testimony__content-holder">';
@@ -71,18 +87,35 @@
                                                 echo '</div>';
                                             echo '</div>';
 
+                                            $nextPost = get_next_post();
+
+                                            if ( $nextPost ) :
+
+                                                echo '<div class="next-testimonial-thumbnail next-testimonial-thumbnail--'.$count.'" style="display: none">' .get_the_post_thumbnail( $nextPost->ID ). '</div>';
+        
+                                                endif;
+
                                         echo '</div>';
+
+                                        $count++;
 
                                     endwhile; 
 
                                  endif;
+
+                            
                         ?>
 
                     </div>
 
             
 
-            <div class="swiper-button-prev square-box square-box__light-grey">
+            <div class="swiper-button-prev square-box square-box__light-grey swiper-prev-testimonial">
+
+                <div class="prev-slide-thumbnail-holder">
+                    <img src="" />
+                </div>
+
 				<div class="chevron-wrapper">
 					<div class="chevron"></div>
 					<div class="chevron"></div>
@@ -90,7 +123,12 @@
 				</div>
 			</div>
 
-            <div class="swiper-button-next square-box square-box__light-grey">
+            <div class="swiper-button-next square-box square-box__light-grey swiper-next-testimonial">
+
+                <div class="next-slide-thumbnail-holder">
+                    <img src="" />
+                 </div>
+
 				<div class="chevron-wrapper">
 					<div class="chevron"></div>
 					<div class="chevron"></div>
