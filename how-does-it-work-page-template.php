@@ -60,25 +60,7 @@ $how_does_it_work_title_2 = get_field("title_part_2");
 							<img src="<?php echo get_field('video_thumbnail') ?>" title="Your browser does not support the <video> tag">
 					</video> -->
 
-					<video
-						id="my-video"
-						class="video-js vjs-static-controls vjs-lime"
-						controls
-          				playsinline
-						preload="auto"
-						poster="<?php echo get_field('video_thumbnail') ?>"
-						data-setup="{}"
-					>
-						<source src="<?php echo get_field('video') ?>" type="video/mp4" />
-						<!-- <source src="MY_VIDEO.webm" type="video/webm" /> -->
-						<p class="vjs-no-js">
-						To view this video please enable JavaScript, and consider upgrading to a
-						web browser that
-						<a href="https://videojs.com/html5-video-support/" target="_blank"
-							>supports HTML5 video</a
-						>
-						</p>
-					</video>
+					<?php get_template_part( 'template-parts/partials/video'); ?>
 
 				</div>
 

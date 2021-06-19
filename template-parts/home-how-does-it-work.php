@@ -35,9 +35,8 @@ $step_title_6 = get_field("step_title_6");
         </div>
 
         <div class="how-does-it-work__description">
-            <p>
-                <?php echo $how_does_it_work_description ?>
-            </p>
+
+            <?php echo $how_does_it_work_description ?>
 
             <a href="<?php echo get_permalink(get_page_by_title( 'How does it work' )) ?>" class="button button__cta desktop-only">Read more</a>
 

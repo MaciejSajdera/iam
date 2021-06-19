@@ -74,11 +74,11 @@ export default function scrollAnimations() {
 
 	const animateHowDoesItWorkMobile = () => {
 		howDoesItWorkStructureMobile.classList.add("how-does-it-work--in-viewport");
-		[...stepBoxesMobile].map((stepBox, i) => {
-			stepBox.style.transition = `all 0.5s ease-in`;
-			stepBox.style.transitionDelay = `${1 + i}s`;
-			stepBox.classList.add("text__red");
-		});
+		// [...stepBoxesMobile].map((stepBox, i) => {
+		// 	stepBox.style.transition = `all 0.5s ease-in`;
+		// 	stepBox.style.transitionDelay = `${1 + i}s`;
+		// 	stepBox.classList.add("text__red");
+		// });
 	};
 
 	howDoesItWorkHomePage &&

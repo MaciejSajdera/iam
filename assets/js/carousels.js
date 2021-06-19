@@ -298,6 +298,9 @@ const initSwiper = () => {
 			// observer: true,
 			// observeParents: true,
 			effect: "fade",
+			fadeEffect: {
+				crossFade: true
+			},
 
 			pagination: {
 				el: `.swiper-pagination-h-mobile--${i}`,
@@ -320,6 +323,9 @@ const initSwiper = () => {
 			// observer: true,
 			// observeParents: true,
 			effect: "fade",
+			fadeEffect: {
+				crossFade: true
+			},
 			allowTouchMove: false,
 
 			pagination: {
@@ -350,6 +356,9 @@ const initSwiper = () => {
 			// observer: true,
 			// observeParents: true,
 			effect: "fade",
+			fadeEffect: {
+				crossFade: true
+			},
 
 			pagination: {
 				el: `.swiper-pagination-h-desktop--${i}`,
@@ -372,6 +381,9 @@ const initSwiper = () => {
 			// observer: true,
 			// observeParents: true,
 			effect: "fade",
+			fadeEffect: {
+				crossFade: true
+			},
 			allowTouchMove: false,
 
 			pagination: {
@@ -412,6 +424,7 @@ const initSwiper = () => {
 			wrapper.style.padding = "2em";
 			myImg.setAttribute("src", myUrl);
 			myImg.style.borderRadius = "25px";
+			myImg.style.maxHeight = "600px";
 			closeButton.classList.add("close-lightbox");
 
 			markup.appendChild(closeButton);

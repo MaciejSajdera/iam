@@ -81,9 +81,17 @@
                                                                     <div class="swiper-container swiper-container-v-desktop swiper-container-v-desktop--<?php echo $index ?>">
                                                                         <div class="swiper-wrapper">
 
+                                                                            <?php if (strlen($product_1_image_1_color_1) > 0) : ?>
                                                                             <div class="swiper-slide image-slide" style="background-image: url(<?php echo $product_1_image_1_color_1 ?>)"></div>
+                                                                            <?php endif ?>                                            
+
+                                                                            <?php if (strlen($product_1_image_1_color_2) > 0) : ?>
                                                                             <div class="swiper-slide image-slide" style="background-image: url(<?php echo $product_1_image_1_color_2 ?>)"></div>
+                                                                            <?php endif ?>
+
+                                                                            <?php if (strlen($product_1_image_1_color_3) > 0) : ?>
                                                                             <div class="swiper-slide image-slide" style="background-image: url(<?php echo $product_1_image_1_color_3 ?>)"></div>
+                                                                            <?php endif ?>
 
                                                                         </div>
                                                                         

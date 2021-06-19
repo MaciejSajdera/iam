@@ -19,28 +19,50 @@ body {
 	overflow-y: scroll;
 }
 
-@media screen and (min-width: 992px) {
-	.viewport {
-		overflow: hidden;
-		position: fixed;
-		height: 100%;
-		width: 100%;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-	}
+// @media screen and (min-width: 1366px) {
+// 	.viewport {
+// 		overflow: hidden;
+// 		position: fixed;
+// 		height: 100%;
+// 		width: 100%;
+// 		top: 0;
+// 		left: 0;
+// 		right: 0;
+// 		bottom: 0;
+// 	}
 
-	.scroll-container {
-		width: 100%;
-		position: absolute;
-		overflow: hidden;
-		z-index: 10;
-		justify-content: center;
-		backface-visibility: hidden;
-		transform-style: preserve-3d;
-		will-change: transform;
-	}
+// 	.scroll-container {
+// 		width: 100%;
+// 		position: absolute;
+// 		overflow: hidden;
+// 		z-index: 10;
+// 		justify-content: center;
+// 		backface-visibility: hidden;
+// 		transform-style: preserve-3d;
+// 		will-change: transform;
+// 	}
+// }
+
+.viewport-smooth-scroll-active {
+	overflow: hidden;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.scroll-container-smooth-scroll-active {
+	width: 100%;
+	position: absolute;
+	overflow: hidden;
+	z-index: 10;
+	justify-content: center;
+	backface-visibility: hidden;
+	transform-style: preserve-3d;
+	will-change: transform;
 }
 
 ::selection {
@@ -594,4 +616,8 @@ table {
 		top: 0em;
 		right: 0em;
 	}
+}
+
+.grecaptcha-badge {
+	display: none;
 }

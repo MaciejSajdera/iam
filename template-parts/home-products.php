@@ -8,7 +8,8 @@
     $product_title_2 = $products["product_title_2"];
 
     $product_image_3 = $products["product_image_3"];
-    $product_title_3 = $products["product_title_3"];
+    $product_title_3_1 = $products["product_title_3_1"];
+    $product_title_3_2 = $products["product_title_3_2"];
 
     $product_image_4 = $products["product_image_4"];
     $product_title_4 = $products["product_title_4"];
@@ -47,7 +48,7 @@
             
             <span class="product-holder red-rectangle">
                 <div class="product-wrapper">
-                    <img src="<?php echo $product_image_1 ?>" alt="">
+                    <img height src="<?php echo $product_image_1 ?>" alt="">
                     <p> <?php echo $product_title_1 ?></p>
                 </div>
             </span>
@@ -65,7 +66,9 @@
                         <img src="<?php echo $product_image_3 ?>" alt="">
                     </span>
                 
-                    <p> <?php echo $product_title_3 ?></p>
+                    <p> <?php echo $product_title_3_1 ?><br />
+                        <?php echo $product_title_3_2 ?>
+                    </p>
                 </div>
             </span>
 

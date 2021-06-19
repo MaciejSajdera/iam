@@ -24,7 +24,9 @@ get_header();
 
 		<?php get_template_part( 'template-parts/home-products', 'page' ); ?>
 
-		<?php get_template_part( 'template-parts/home-testimonials', 'page' ); ?>
+		<?php
+		//  get_template_part( 'template-parts/home-testimonials', 'page' );
+		?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

@@ -103,6 +103,12 @@ document.addEventListener("DOMContentLoaded", () => {
 	var requestId = null;
 
 	const initSmoothScroll = () => {
+		const viewport = document.querySelector(".viewport");
+		const scrollContainer = document.querySelector(".scroll-container");
+
+		viewport.classList.add("viewport-smooth-scroll-active");
+		scrollContainer.classList.add("scroll-container-smooth-scroll-active");
+
 		// Force CSSPlugin to not get dropped during build
 		gsap.registerPlugin(CSSPlugin);
 
@@ -111,16 +117,19 @@ document.addEventListener("DOMContentLoaded", () => {
 			force3D: true
 		});
 
-		window.addEventListener("load", onLoad);
+		// window.addEventListener("load", onLoad);
 
-		// onLoad()
+		onLoad();
+		onResize();
+		onScroll();
 
 		function onLoad() {
-			updateScroller();
 			window.focus();
 			window.addEventListener("resize", onResize);
 			document.addEventListener("scroll", onScroll);
 		}
+
+		window.addEventListener("resize", updateScroller);
 
 		function updateScroller() {
 			var resized = scroller.resizeRequest > 0;
@@ -166,7 +175,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	};
 
-	const mediaQueryDesktop = window.matchMedia("(min-width: 992px)");
+	const mediaQueryDesktop = window.matchMedia("(min-width: 1366px)");
 	function handleDesktopChange(e) {
 		// Check if the media query is true
 		if (e.matches) {
