@@ -98,8 +98,8 @@ export class isElementAtTopOfViewport {
 			// IntersectionObserver Supported
 			let config = {
 				root: null,
-				rootMargin: "0px",
-				threshold: 0.5
+				rootMargin: "130px",
+				threshold: 0
 			};
 
 			let observer = new IntersectionObserver(onChange, config);
@@ -108,12 +108,13 @@ export class isElementAtTopOfViewport {
 
 			function onChange(changes, observer) {
 				changes.forEach(change => {
-					console.log(change);
-
-					if (change.isIntersecting) {
+					if (
+						change.boundingClientRect.top < 0 &&
+						change.intersectionRect.top === 0
+					) {
 						doAction(change.target);
 					}
-					if (!change.isIntersecting) {
+					if (change.intersectionRect.top > 0) {
 						undoAction(change.target);
 					}
 				});

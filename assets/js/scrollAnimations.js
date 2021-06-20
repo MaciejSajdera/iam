@@ -270,25 +270,28 @@ export default function scrollAnimations() {
 
 	/* 	Menu */
 
-	// const makeMenuLight = () => {
-	// 	document
-	// 		.querySelector(".menu-toggle")
-	// 		.classList.remove(".menu-toggle--dark");
-	// 	document.querySelector(".menu-toggle").classList.add("menu-toggle--light");
-	// };
+	const observerForMenuColorChange = document.querySelector("#observer-holder");
 
-	// const makeMenuDark = () => {
-	// 	document
-	// 		.querySelector(".menu-toggle")
-	// 		.classList.remove("menu-toggle--light");
-	// 	document.querySelector(".menu-toggle").classList.add("menu-toggle--dark");
-	// };
+	const makeMenuLight = () => {
+		document
+			.querySelector(".menu-toggle")
+			.classList.remove(".menu-toggle--dark");
+		document.querySelector(".menu-toggle").classList.add("menu-toggle--light");
+	};
 
-	// new isElementAtTopOfViewport(
-	// 	document.querySelector(".home-products"),
-	// 	makeMenuLight,
-	// 	makeMenuDark
-	// );
+	const makeMenuDark = () => {
+		document
+			.querySelector(".menu-toggle")
+			.classList.remove("menu-toggle--light");
+		document.querySelector(".menu-toggle").classList.add("menu-toggle--dark");
+	};
+
+	observerForMenuColorChange &&
+		new isElementAtTopOfViewport(
+			observerForMenuColorChange,
+			makeMenuLight,
+			makeMenuDark
+		);
 
 	document.addEventListener("scroll", () => {
 		/*Section: 'Products' */

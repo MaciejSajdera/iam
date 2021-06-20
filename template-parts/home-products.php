@@ -17,6 +17,7 @@
 
 
 <section class="home-products">
+    <span id="observer-holder"></span>
     <div class="home-products__content">
 
         <div class="home-products__content--upper">

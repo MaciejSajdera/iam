@@ -563,6 +563,10 @@ section {
 			margin: auto;
 			transition: all 1s ease-in-out;
 			cursor: pointer;
+
+			// svg {
+			// 	transition: all 1.25s ease-in;
+			// }
 		}
 
 		text {
@@ -652,6 +656,12 @@ section {
 		}
 	}
 
+	// .animated {
+	// 	svg {
+	// 		transform: rotate(5deg);
+	// 	}
+	// }
+
 	.distributors__holder.animated {
 		top: 17%;
 		opacity: 1;
@@ -709,11 +719,11 @@ section {
 	$delay-step-color-06: 7.75s;
 
 	$delay-step-color-01_mobile: 0s;
-	$delay-step-color-02_mobile: 1s;
-	$delay-step-color-03_mobile: 2s;
-	$delay-step-color-04_mobile: 3s;
-	$delay-step-color-05_mobile: 4s;
-	$delay-step-color-06_mobile: 5.5s;
+	$delay-step-color-02_mobile: 1.5s;
+	$delay-step-color-03_mobile: 3s;
+	$delay-step-color-04_mobile: 4.5s;
+	$delay-step-color-05_mobile: 6s;
+	$delay-step-color-06_mobile: 7.5s;
 
 	.step {
 		visibility: visible;
@@ -1087,10 +1097,11 @@ section {
 			animation-timing-function: linear;
 			animation-fill-mode: both;
 			animation-name: fillThePath_1_mobile;
-			animation-duration: 1s;
+			animation-duration: 1.5s;
 
 			@media screen and (min-width: 1200px) {
 				animation-name: fillThePath_1;
+				animation-duration: 1s;
 			}
 		}
 
@@ -1110,11 +1121,13 @@ section {
 			animation-timing-function: linear;
 			animation-fill-mode: both;
 			animation-name: fillThePath_2_mobile;
-			animation-duration: 1s;
-			animation-delay: 1s;
+			animation-duration: 1.5s;
+			animation-delay: 1.5s;
 
 			@media screen and (min-width: 1200px) {
 				animation-name: fillThePath_2;
+				animation-duration: 1s;
+				animation-delay: 1s;
 			}
 		}
 
@@ -1133,11 +1146,13 @@ section {
 			animation-timing-function: linear;
 			animation-fill-mode: both;
 			animation-name: fillThePath_3_mobile;
-			animation-duration: 1s;
-			animation-delay: 2s;
+			animation-duration: 1.5s;
+			animation-delay: 3s;
 
 			@media screen and (min-width: 1200px) {
 				animation-name: fillThePath_3;
+				animation-duration: 1s;
+				animation-delay: 2s;
 			}
 		}
 
@@ -1156,12 +1171,13 @@ section {
 			animation-timing-function: linear;
 			animation-fill-mode: both;
 			animation-name: fillThePath_4_mobile;
-			animation-duration: 2.5s;
-			animation-delay: 3s;
+			animation-duration: 3s;
+			animation-delay: 4.5s;
 
 			@media screen and (min-width: 1200px) {
 				animation-name: fillThePath_4;
 				animation-duration: 2s;
+				animation-delay: 3s;
 			}
 		}
 
@@ -1180,11 +1196,12 @@ section {
 			animation-timing-function: linear;
 			animation-fill-mode: both;
 			animation-name: fillThePath_5_mobile;
-			animation-duration: 1.5s;
-			animation-delay: 4.25s;
+			animation-duration: 2s;
+			animation-delay: 6s;
 
 			@media screen and (min-width: 1200px) {
 				animation-name: fillThePath_5;
+				animation-duration: 1.5s;
 				animation-delay: 5s;
 			}
 		}
@@ -1204,12 +1221,13 @@ section {
 			animation-timing-function: linear;
 			animation-fill-mode: both;
 			animation-name: fillThePath_6_mobile;
-			animation-duration: 1.25s;
-			animation-delay: 7s;
+			animation-duration: 1.5s;
+			animation-delay: 8.5s;
 
 			@media screen and (min-width: 1200px) {
 				animation-name: fillThePath_6;
 				animation-delay: 6.5s;
+				animation-duration: 1.25s;
 			}
 		}
 
@@ -2261,6 +2279,7 @@ section {
 	}
 
 	.button__cta {
+		display: none;
 		@media screen and (max-width: 1200px) {
 			margin: auto;
 		}

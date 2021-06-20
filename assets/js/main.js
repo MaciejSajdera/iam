@@ -334,6 +334,19 @@ document.addEventListener("DOMContentLoaded", () => {
 			});
 		});
 
+	const readMoreScrollDown = document.querySelector(
+		".welcome-view__cta-wrapper .button"
+	);
+
+	readMoreScrollDown &&
+		readMoreScrollDown.addEventListener("click", () => {
+			window.scroll({
+				top: window.innerHeight,
+				left: 0,
+				behavior: "smooth"
+			});
+		});
+
 	/* Center Points */
 
 	const circleElements = document.querySelectorAll(

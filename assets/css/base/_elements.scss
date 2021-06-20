@@ -621,3 +621,12 @@ table {
 .grecaptcha-badge {
 	display: none;
 }
+
+#observer-holder {
+	padding: 0;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	height: 1px;
+	display: block;
+}
