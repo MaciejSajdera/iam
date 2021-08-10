@@ -75,7 +75,7 @@ body {
 .body-loaded {
 	background: $color__background-body;
 	// display: block !important;
-	visibility: visible !important;
+	// visibility: visible !important;
 }
 
 blockquote,
@@ -216,7 +216,7 @@ table {
 }
 
 .site {
-	transition: all 0.3s ease-in;
+	transition: opacity 0.3s ease-in;
 	// // display: none;
 	opacity: 0;
 }
@@ -266,6 +266,16 @@ table {
 
 		&:hover {
 			background-color: darken($color: $color__custom-red, $amount: 10%);
+		}
+	}
+
+	&__open-app {
+		@media screen and (min-width: 1200px) {
+			margin-left: 5rem;
+		}
+
+		@media screen and (max-width: 1200px) {
+			min-width: 170px;
 		}
 	}
 }
@@ -628,5 +638,22 @@ table {
 	position: absolute;
 	left: 0;
 	height: 1px;
-	display: block;
+
+	display: none;
+
+	@media screen and (min-width: 1366px) {
+		display: block;
+	}
+}
+
+section.error-404 {
+	min-height: 100vh;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	justify-content: center;
+
+	.button {
+		margin: auto;
+	}
 }

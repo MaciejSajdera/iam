@@ -187,7 +187,7 @@ footer {
 				}
 			}
 
-			input {
+			input[type="email"] {
 				width: 100%;
 				text-align: center;
 
@@ -203,8 +203,8 @@ footer {
 				}
 
 				@media screen and (min-width: 1200px) {
-					text-align: initial;
 					padding: 0 20px;
+					text-align: initial;
 				}
 			}
 
@@ -225,7 +225,7 @@ footer {
 		}
 
 		&__subscribe--in-viewport {
-			input {
+			input[type="email"] {
 				&::placeholder {
 					opacity: 1;
 				}

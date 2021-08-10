@@ -270,28 +270,28 @@ export default function scrollAnimations() {
 
 	/* 	Menu */
 
-	const observerForMenuColorChange = document.querySelector("#observer-holder");
+	// const observerForMenuColorChange = document.querySelector("#observer-holder");
 
-	const makeMenuLight = () => {
-		document
-			.querySelector(".menu-toggle")
-			.classList.remove(".menu-toggle--dark");
-		document.querySelector(".menu-toggle").classList.add("menu-toggle--light");
-	};
+	// const makeMenuLight = () => {
+	// 	document
+	// 		.querySelector(".menu-toggle")
+	// 		.classList.remove(".menu-toggle--dark");
+	// 	document.querySelector(".menu-toggle").classList.add("menu-toggle--light");
+	// };
 
-	const makeMenuDark = () => {
-		document
-			.querySelector(".menu-toggle")
-			.classList.remove("menu-toggle--light");
-		document.querySelector(".menu-toggle").classList.add("menu-toggle--dark");
-	};
+	// const makeMenuDark = () => {
+	// 	document
+	// 		.querySelector(".menu-toggle")
+	// 		.classList.remove("menu-toggle--light");
+	// 	document.querySelector(".menu-toggle").classList.add("menu-toggle--dark");
+	// };
 
-	observerForMenuColorChange &&
-		new isElementAtTopOfViewport(
-			observerForMenuColorChange,
-			makeMenuLight,
-			makeMenuDark
-		);
+	// observerForMenuColorChange &&
+	// 	new isElementAtTopOfViewport(
+	// 		observerForMenuColorChange,
+	// 		makeMenuLight,
+	// 		makeMenuDark
+	// 	);
 
 	document.addEventListener("scroll", () => {
 		/*Section: 'Products' */

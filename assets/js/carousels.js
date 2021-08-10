@@ -15,6 +15,8 @@ import * as basicLightbox from "basiclightbox";
 Swiper.use([Navigation, Pagination, EffectFade]);
 
 const initSwiper = () => {
+	console.log("Swiper scripts Initialized.");
+
 	var howDoesitWorkPage = new Swiper(".swiper-container-how-does-it-work", {
 		direction: "horizontal",
 		loop: false,

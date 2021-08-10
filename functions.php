@@ -133,8 +133,8 @@ add_action( 'widgets_init', 'am_widgets_init' );
  * Enqueue scripts and styles.
  */
 function am_scripts() {
-	wp_enqueue_style( 'am-style', get_template_directory_uri() . '/dist/css/style.css', array(), '9.4');
-	wp_enqueue_script( 'am-app', get_template_directory_uri() . '/dist/js/main.js', array(), '9.4', true );
+	wp_enqueue_style( 'am-style', get_template_directory_uri() . '/dist/css/style.css', array(), '10.8');
+	wp_enqueue_script( 'am-app', get_template_directory_uri() . '/dist/js/main.js', array(), '10.8', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -153,9 +153,23 @@ add_action( 'wp_enqueue_scripts', 'wpb_add_google_fonts' );
 //     if ( FALSE === strpos( $url, '.js' ) ) return $url;
 //     if ( strpos( $url, 'jquery' ) ) return $url;
 // 	if ( strpos( $url, 'wp-includes' ) ) return $url;
+
 //     return str_replace( ' src', ' defer src', $url );
 // }
 // add_filter( 'script_loader_tag', 'defer_parsing_of_js', 10 );
+
+function add_attribute_to_script_tag($tag, $handle) {
+	# add script handles to the array below
+	$scripts_to_defer = array('recaptcha');
+ 
+	foreach($scripts_to_defer as $defer_script) {
+	   if ($defer_script === $handle) {
+		  return str_replace(' src', ' defer src', $tag);
+	   }
+	}
+	return $tag;
+ }
+ add_filter('script_loader_tag', 'add_attribute_to_script_tag', 10, 2);
 
 
 /* Unregister categories so they don't show on google seach */

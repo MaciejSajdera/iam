@@ -60,17 +60,26 @@
 	}
 
 	&__additional {
-		padding: 0 3em;
+		padding: 0 1em;
 		display: flex;
-		justify-content: flex-end;
+		// justify-content: flex-end;
 
 		// @media screen and (max-width: 400px) {
 		// 	padding: 0 1em;
 		// }
 
+		@media screen and (max-width: 1200px) {
+			justify-content: space-between;
+		}
+
+		@media screen and (min-width: 768px) {
+			padding: 0 15%;
+		}
+
 		@media screen and (min-width: 1200px) {
 			flex-flow: row-reverse;
 			justify-content: initial;
+			padding: 0 2em;
 		}
 	}
 

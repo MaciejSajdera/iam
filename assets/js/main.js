@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	setTimeout(() => {
 		page.classList.add("page-show");
-	}, 1200);
+	}, 1001);
 
 	setTimeout(() => {
 		myPreloader.classList.add("my-preloader-none");
@@ -65,24 +65,24 @@ document.addEventListener("DOMContentLoaded", () => {
 	scrollAnimations();
 
 	/* Check if iPad */
-	const isiPad = window.navigator.userAgent.match(/iPad/i) != null;
+	// const isiPad = window.navigator.userAgent.match(/iPad/i) != null;
 
-	if (isiPad) {
-		//elements that have variations for iPad
-		const mainNavigationAdditional = document.querySelector(
-			".main-navigation__additional"
-		);
-		//actions
-		mainNavigationAdditional.classList.add("main-navigation__for-ipad");
-	}
+	// if (isiPad) {
+	// 	//elements that have variations for iPad
+	// 	const mainNavigationAdditional = document.querySelector(
+	// 		".main-navigation__additional"
+	// 	);
+	// 	//actions
+	// 	mainNavigationAdditional.classList.add("main-navigation__for-ipad");
+	// }
 
-	if (!isiPad) {
-		const iPadOnlyElements = document.querySelectorAll(".ipad-only");
+	// if (!isiPad) {
+	// 	const iPadOnlyElements = document.querySelectorAll(".ipad-only");
 
-		iPadOnlyElements.forEach(element => {
-			element.style.display = "none";
-		});
-	}
+	// 	iPadOnlyElements.forEach(element => {
+	// 		element.style.display = "none";
+	// 	});
+	// }
 
 	skipLinkFocus();
 
@@ -175,7 +175,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	};
 
-	const mediaQueryDesktop = window.matchMedia("(min-width: 1366px)");
+	const mediaQueryDesktop = window.matchMedia("(min-width: 992px)");
 	function handleDesktopChange(e) {
 		// Check if the media query is true
 		if (e.matches) {
@@ -184,6 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			initSmoothScroll();
 		}
 	}
+
 	mediaQueryDesktop.addListener(handleDesktopChange);
 	handleDesktopChange(mediaQueryDesktop);
 
@@ -380,10 +381,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 				markup.appendChild(closeButton);
 
-				// this.closest(".swiper-wrapper").childNodes.forEach(node => {
-				// 	return `<div></div>`;
-				// });
-
 				const instance = basicLightbox.create(markup, {
 					onShow: instance => {
 						instance.element().querySelector("a").onclick = instance.close;
@@ -394,9 +391,9 @@ document.addEventListener("DOMContentLoaded", () => {
 			});
 		});
 
-	/* Testimonials */
-
-	initSwiper();
+	/* Carousels */
+	const isThereAnySwiper = document.querySelector(".swiper-wrapper");
+	isThereAnySwiper ? initSwiper() : "";
 
 	/* How Does It Work */
 	const myVideo = document.querySelector(".video-js");

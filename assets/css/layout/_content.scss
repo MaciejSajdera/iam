@@ -1854,7 +1854,12 @@ section {
 					color: $color__custom-red;
 				}
 			}
+
+			&__icon {
+				animation: none;
+			}
 		}
+
 
 		.svg-path-cover {
 			animation-delay: 0s;

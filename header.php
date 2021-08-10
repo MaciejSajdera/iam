@@ -62,7 +62,7 @@
 
 			<div class="main-navigation__additional"> 
 
-				<a href="#" class="button button__cta ipad-only" target="_blank">OPEN APP</a>
+				<a href="https://iam-op.com/login" class="button button__cta ipad-only button__open-app" target="_blank">OPEN APP</a>
 
 				<div class="main-navigation__icons">
 				
