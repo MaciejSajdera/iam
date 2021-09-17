@@ -1860,7 +1860,6 @@ section {
 			}
 		}
 
-
 		.svg-path-cover {
 			animation-delay: 0s;
 			animation-duration: 0s;
@@ -4458,7 +4457,7 @@ section {
 				}
 			}
 
-			.wpcf7-form-control-wrap.menu-759 {
+			.wpcf7-form-control-wrap.your-name {
 				position: relative;
 
 				&:before {
@@ -4472,17 +4471,17 @@ section {
 					background: $color__grid-line;
 				}
 
-				select {
-					cursor: pointer;
-					-webkit-appearance: none;
-					-moz-appearance: none;
-					appearance: none;
-					-ms-word-break: normal;
-					word-break: normal;
-					&::-ms-expand {
-						display: none;
-					}
-				}
+				// select {
+				// 	cursor: pointer;
+				// 	-webkit-appearance: none;
+				// 	-moz-appearance: none;
+				// 	appearance: none;
+				// 	-ms-word-break: normal;
+				// 	word-break: normal;
+				// 	&::-ms-expand {
+				// 		display: none;
+				// 	}
+				// }
 
 				&:after {
 					content: "";
