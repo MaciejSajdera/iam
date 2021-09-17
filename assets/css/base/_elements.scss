@@ -169,6 +169,7 @@ table {
 .my-preloader {
 	height: 100vh;
 	position: fixed;
+	top: 0;
 	width: 100vw;
 	background: #000;
 	z-index: 99999;
@@ -187,6 +188,10 @@ table {
 		background-size: contain;
 		background-position: center;
 		animation: mymove 1.5s infinite;
+
+		img {
+			object-fit: contain;
+		}
 	}
 }
 

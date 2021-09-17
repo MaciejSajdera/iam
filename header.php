@@ -30,6 +30,8 @@
 
 <?php wp_body_open(); ?>
 
+<div id="page" class="site" style="visibility: hidden">
+
 <header id="masthead" class="site-header">
 		<div class="site-branding">
 			<?php
@@ -75,7 +77,7 @@
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 
-<div id="page" class="site" style="visibility: hidden">
+
 
 <div class="viewport">
 

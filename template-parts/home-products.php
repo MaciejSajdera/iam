@@ -49,14 +49,14 @@
             
             <span class="product-holder red-rectangle">
                 <div class="product-wrapper">
-                    <img height src="<?php echo $product_image_1 ?>" alt="">
+                    <img loading="lazy" height src="<?php echo $product_image_1 ?>" alt="">
                     <p> <?php echo $product_title_1 ?></p>
                 </div>
             </span>
 
             <span class="product-holder model-x3">
                 <div class="product-wrapper">
-                    <img src="<?php echo $product_image_2 ?>" alt="">
+                    <img loading="lazy" src="<?php echo $product_image_2 ?>" alt="">
                     <p> <?php echo $product_title_2 ?></p>
                 </div>
             </span>
@@ -64,7 +64,7 @@
             <span class="product-holder model-sail">
                 <div class="product-wrapper">
                     <span class="image-holder">
-                        <img src="<?php echo $product_image_3 ?>" alt="">
+                        <img loading="lazy" src="<?php echo $product_image_3 ?>" alt="">
                     </span>
                 
                     <p> <?php echo $product_title_3_1 ?><br />
@@ -75,7 +75,7 @@
 
             <span class="product-holder model-white">
                 <div class="product-wrapper">
-                    <img src="<?php echo $product_image_4 ?>" alt="">
+                    <img loading="lazy" src="<?php echo $product_image_4 ?>" alt="">
                     <p> <?php echo $product_title_4 ?></p>
                 </div>
             </span>
