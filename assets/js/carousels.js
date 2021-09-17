@@ -1,12 +1,5 @@
 // import Swiper JS
-import Swiper, {
-	Navigation,
-	Autoplay,
-	Pagination,
-	Parallax,
-	EffectFade,
-	Lazy
-} from "swiper";
+import Swiper, { Navigation, Pagination, EffectFade } from "swiper";
 // import Swiper styles
 import "swiper/swiper-bundle.css";
 import * as basicLightbox from "basiclightbox";

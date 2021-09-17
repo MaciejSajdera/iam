@@ -1,9 +1,7 @@
 import smoothscroll from "smoothscroll-polyfill";
 import skipLinkFocus from "./skip-link-focus-fix.js";
-import { RevealChildrenOf } from "./animations.js";
 import initSwiper from "./carousels.js";
 import scrollAnimations from "./scrollAnimations.js";
-import isElementInViewport from "./helperFunctions.js";
 import { gsap, TweenLite } from "gsap";
 import { CSSPlugin } from "gsap/CSSPlugin";
 import * as basicLightbox from "basiclightbox";
@@ -181,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		if (e.matches) {
 			// Then log the following message to the console
 			console.log("Media Query Desktop Matched!");
-			// initSmoothScroll();
+			initSmoothScroll();
 		}
 	}
 

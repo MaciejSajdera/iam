@@ -1,8 +1,6 @@
 import {
 	isElementInViewport,
 	isElementInterSecting,
-	isElementAtTopOfViewport,
-	isElementLeavingViewport,
 	isElementInterSectingNoThreshold
 } from "./helperFunctions.js";
 
