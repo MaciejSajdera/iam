@@ -305,6 +305,10 @@ table {
 	&__red {
 		color: $color__custom-red !important;
 	}
+
+	&__underline {
+		border-bottom: 2px solid currentColor;
+	}
 }
 
 .font {

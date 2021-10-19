@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		if (e.matches) {
 			// Then log the following message to the console
 			console.log("Media Query Desktop Matched!");
-			initSmoothScroll();
+			// initSmoothScroll();
 		}
 	}
 

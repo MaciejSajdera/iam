@@ -33,11 +33,15 @@ h1.smaller-title {
 	margin: 0 0 0.3em;
 }
 
+h3 {
+	@include fluid-type($min_width, $max_width, 16px, 28px);
+}
+
 /* COPY */
 
 p {
 	margin-bottom: 1.5em;
-	@include fluid-type($min_width, $max_width, 17px, 28px);
+	@include fluid-type($min_width, $max_width, 16px, 28px);
 }
 
 dfn,

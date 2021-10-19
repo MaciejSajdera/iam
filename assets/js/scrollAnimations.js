@@ -285,11 +285,137 @@ export default function scrollAnimations() {
 	// };
 
 	// observerForMenuColorChange &&
-	// 	new isElementAtTopOfViewport(
+	// 	new isElementAtTheTopOfViewport(
 	// 		observerForMenuColorChange,
 	// 		makeMenuLight,
 	// 		makeMenuDark
 	// 	);
+
+	/* 	Fixed Triangle */
+	const fixedTriangle = document.querySelector("#fixedTriangle");
+
+	let scrollPositionSnapShot = [];
+	let isTriangleStopped = false;
+
+	const animateTriangle = () => {
+		const enviromentSection1 = document.querySelector("#enviromentSection1");
+		const triangleForSection1 = document.querySelector(".fixed-triangle--1");
+
+		let enviromentSection1OffsetTop =
+			window.pageYOffset + enviromentSection1.getBoundingClientRect().top;
+
+		let enviromentSection1OffsetBottom =
+			window.pageYOffset + enviromentSection1.getBoundingClientRect().bottom;
+
+		const enviromentSection2 = document.querySelector("#enviromentSection2");
+		const triangleForSection2 = document.querySelector(".fixed-triangle--2");
+
+		let enviromentSection2OffsetTop =
+			window.pageYOffset + enviromentSection2.getBoundingClientRect().top;
+
+		let enviromentSection2OffsetBottom =
+			window.pageYOffset + enviromentSection2.getBoundingClientRect().bottom;
+
+		const enviromentSection3 = document.querySelector("#enviromentSection3");
+		const triangleForSection3 = document.querySelector(".fixed-triangle--3");
+
+		let enviromentSection3OffsetTop =
+			window.pageYOffset + enviromentSection3.getBoundingClientRect().top;
+
+		let enviromentSection3OffsetBottom =
+			window.pageYOffset + enviromentSection3.getBoundingClientRect().bottom;
+
+		// console.log(`enviromentSection1OffsetTop:`);
+		// console.log(enviromentSection1OffsetTop);
+
+		// console.log(`enviromentSection2OffsetTop:`);
+		// console.log(enviromentSection2OffsetTop);
+
+		// console.log(`enviromentSection2OffsetBottom:`);
+		// console.log(enviromentSection2OffsetBottom);
+
+		// console.log(`enviromentSection3OffsetTop:`);
+		// console.log(enviromentSection3OffsetTop);
+
+		// console.log(`enviromentSection3OffsetBottom:`);
+		// console.log(enviromentSection3OffsetBottom);
+
+		let fixedTriangleDistanceTop =
+			window.pageYOffset + fixedTriangle.getBoundingClientRect().top;
+
+		let fixedTriangleDistanceBottom =
+			window.pageYOffset + fixedTriangle.getBoundingClientRect().bottom;
+
+		console.log(`fixedTriangleDistanceTop: ${fixedTriangleDistanceTop}`);
+		console.log(`fixedTriangleDistanceBottom: ${fixedTriangleDistanceBottom}`);
+
+		if (
+			enviromentSection1OffsetTop < fixedTriangleDistanceBottom &&
+			enviromentSection1OffsetBottom > fixedTriangleDistanceTop
+		) {
+			fixedTriangle.classList = "";
+			fixedTriangle.classList.add("fixed-triangle--state-1");
+		}
+
+		if (
+			enviromentSection2OffsetTop < fixedTriangleDistanceBottom &&
+			enviromentSection2OffsetBottom > fixedTriangleDistanceTop
+		) {
+			fixedTriangle.classList = "";
+			fixedTriangle.classList.add("fixed-triangle--state-2");
+		}
+
+		if (
+			enviromentSection3OffsetTop < fixedTriangleDistanceBottom &&
+			enviromentSection3OffsetBottom > fixedTriangleDistanceTop
+		) {
+			fixedTriangle.classList = "";
+			fixedTriangle.classList.add("fixed-triangle--state-3");
+		}
+
+		if (fixedTriangleDistanceBottom >= enviromentSection3OffsetBottom) {
+			//Stop the triangle
+			fixedTriangle.style.position = "absolute";
+			// console.log(fixedTriangle.getBoundingClientRect());
+			fixedTriangle.style.top = `${enviromentSection3OffsetBottom -
+				fixedTriangle.getBoundingClientRect().height}px`;
+			fixedTriangle.style.left = `auto`;
+
+			scrollPositionSnapShot.push(document.documentElement.scrollTop);
+			isTriangleStopped = true;
+		}
+
+		console.log(`scrollPositionSnapShot: ${scrollPositionSnapShot[0]}`);
+
+		if (
+			isTriangleStopped &&
+			document.documentElement.scrollTop < scrollPositionSnapShot[0]
+
+			//TODO: add condition when page is scrolled to bottom and then refreshed
+		) {
+			fixedTriangle.style.position = "fixed";
+			fixedTriangle.style.top = `auto`;
+			fixedTriangle.style.left = `50%`;
+
+			isTriangleStopped = false;
+		}
+	};
+
+	fixedTriangle &&
+		fixedTriangle.addEventListener("click", e => {
+			console.log(e);
+			if (e.target.dataset.sectionPointer) {
+				const targetSection = document.querySelector(
+					e.target.dataset.sectionPointer
+				);
+
+				targetSection.scrollIntoView({
+					behavior: "smooth",
+					block: "center",
+					inline: "nearest"
+				});
+			}
+		});
 
 	document.addEventListener("scroll", () => {
 		/*Section: 'Products' */
@@ -302,6 +428,10 @@ export default function scrollAnimations() {
 					? product.classList.add("animate-product")
 					: "";
 			});
+
+		fixedTriangle && animateTriangle();
+
+		/* Subpage: Enviroment */
 
 		/* 	Menu */
 		// console.log(
