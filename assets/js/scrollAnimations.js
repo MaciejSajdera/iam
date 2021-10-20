@@ -346,8 +346,8 @@ export default function scrollAnimations() {
 		let fixedTriangleDistanceBottom =
 			window.pageYOffset + fixedTriangle.getBoundingClientRect().bottom;
 
-		console.log(`fixedTriangleDistanceTop: ${fixedTriangleDistanceTop}`);
-		console.log(`fixedTriangleDistanceBottom: ${fixedTriangleDistanceBottom}`);
+		// console.log(`fixedTriangleDistanceTop: ${fixedTriangleDistanceTop}`);
+		// console.log(`fixedTriangleDistanceBottom: ${fixedTriangleDistanceBottom}`);
 
 		if (
 			enviromentSection1OffsetTop < fixedTriangleDistanceBottom &&
@@ -385,7 +385,7 @@ export default function scrollAnimations() {
 			isTriangleStopped = true;
 		}
 
-		console.log(`scrollPositionSnapShot: ${scrollPositionSnapShot[0]}`);
+		// console.log(`scrollPositionSnapShot: ${scrollPositionSnapShot[0]}`);
 
 		if (
 			isTriangleStopped &&
@@ -403,7 +403,7 @@ export default function scrollAnimations() {
 
 	fixedTriangle &&
 		fixedTriangle.addEventListener("click", e => {
-			console.log(e);
+			// console.log(e);
 			if (e.target.dataset.sectionPointer) {
 				const targetSection = document.querySelector(
 					e.target.dataset.sectionPointer

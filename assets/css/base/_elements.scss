@@ -673,14 +673,16 @@ section.error-404 {
 	width: 365px;
 	margin: auto;
 	// right: 58px;
-
 	position: absolute;
-	left: 50%;
+
+	left: 150%; //pre-initialization
+	opacity: 0;
+
 	transform: translate(-50%, -15%) scale(0.75);
+	transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
 
 	@media screen and (min-width: 1024px) {
 		position: fixed;
-		left: 50%;
 		transform: translate(30%, -15%) scale(0.75);
 	}
 
@@ -739,50 +741,7 @@ $text-distance: 30px;
 		transition: all 0.3s ease-in-out;
 		float: right;
 		right: 0;
-
-		animation: iniTriangle 1.25s forwards;
-		animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-		animation-delay: 1s;
-		@keyframes iniTriangle {
-			0% {
-				width: 0;
-			}
-
-			90% {
-				// transform: translate(-50%, -15%) scale(0.75) rotate(360deg);
-
-				width: $border-outer-length;
-			}
-
-			100% {
-				// transform: translate(-50%, -15%) scale(0.75) rotate(360deg);
-
-				width: $border-outer-length;
-			}
-		}
 	}
-
-	@keyframes iniInnerTriangle {
-		0% {
-			opacity: 0;
-		}
-
-		90% {
-			// transform: translate(-50%, -15%) scale(0.75) rotate(360deg);
-
-			opacity: 1;
-		}
-
-		100% {
-			// transform: translate(-50%, -15%) scale(0.75) rotate(360deg);
-
-			opacity: 1;
-		}
-	}
-
-	$iniInnerTriangleAnimationParams: iniInnerTriangle 1.25s forwards;
-	$iniInnerTriangleAnimationTimingFunc: cubic-bezier(0.4, 0, 0.2, 1);
-	$iniInnerTriangleAnimationDelay: 1s;
 
 	&:before {
 		content: "";
@@ -796,9 +755,6 @@ $text-distance: 30px;
 		transform: rotate(30deg) translateY(1px);
 		transform-origin: right;
 		opacity: 0;
-		animation: $iniInnerTriangleAnimationParams;
-		animation-timing-function: $iniInnerTriangleAnimationTimingFunc;
-		animation-delay: $iniInnerTriangleAnimationDelay;
 	}
 
 	p {
@@ -815,28 +771,6 @@ $text-distance: 30px;
 		}
 
 		// transform: translateY(calc(-#{$triangle-height} - #{$text-distance}));
-
-		animation: iniTriangleParagraphs 1.25s forwards;
-		animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-		animation-delay: 1s;
-		@keyframes iniTriangleParagraphs {
-			0% {
-				// transform: translateY(0);
-				opacity: 0;
-			}
-
-			90% {
-				// transform: translate(-50%, -15%) scale(0.75) rotate(360deg);
-				transform: translateY(calc(-#{$triangle-height} - #{$text-distance}));
-				opacity: 1;
-			}
-
-			100% {
-				// transform: translate(-50%, -15%) scale(0.75) rotate(360deg);
-				transform: translateY(calc(-#{$triangle-height} - #{$text-distance}));
-				opacity: 1;
-			}
-		}
 	}
 
 	&--1 {
@@ -861,30 +795,6 @@ $text-distance: 30px;
 		border-bottom: $triangle-height solid $color-triangle-3;
 		bottom: $triangle-height;
 
-		p {
-			// transform: translateY(calc(#{$triangle-height} + #{$text-distance}));
-
-			animation: iniTriangleParagraphSpecial 1.25s forwards;
-			animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-			animation-delay: 1s;
-			@keyframes iniTriangleParagraphSpecial {
-				0% {
-					opacity: 0;
-				}
-
-				90% {
-					transform: translateY(calc(#{$triangle-height} + #{$text-distance}));
-					opacity: 1;
-				}
-
-				100% {
-					// transform: translate(-50%, -15%) scale(0.75) rotate(360deg);
-					transform: translateY(calc(#{$triangle-height} + #{$text-distance}));
-					opacity: 1;
-				}
-			}
-		}
-
 		&:after {
 			content: "";
 			height: 0px;
@@ -897,9 +807,6 @@ $text-distance: 30px;
 			transform: rotate(-30deg) translateY(1px);
 			opacity: 0;
 			transform-origin: right;
-			animation: $iniInnerTriangleAnimationParams;
-			animation-timing-function: $iniInnerTriangleAnimationTimingFunc;
-			animation-delay: $iniInnerTriangleAnimationDelay;
 		}
 
 		span {
@@ -963,6 +870,128 @@ $text-distance: 30px;
 
 				p {
 					letter-spacing: 4px;
+				}
+			}
+		}
+	}
+}
+
+.enviroment__triangle-track--initialized {
+	#fixedTriangle {
+		left: 50%;
+		opacity: 1;
+
+		$iniInnerTriangleAnimationParams: iniInnerTriangle 1.25s forwards;
+		$iniInnerTriangleAnimationTimingFunc: cubic-bezier(0.4, 0, 0.2, 1);
+
+		$animationDelay: 1s;
+
+		@keyframes iniInnerTriangle {
+			0% {
+				opacity: 0;
+			}
+
+			90% {
+				// transform: translate(-50%, -15%) scale(0.75) rotate(360deg);
+
+				opacity: 1;
+			}
+
+			100% {
+				// transform: translate(-50%, -15%) scale(0.75) rotate(360deg);
+
+				opacity: 1;
+			}
+		}
+
+		span {
+			animation: iniTriangle 1.25s forwards;
+			animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+			animation-delay: $animationDelay;
+			@keyframes iniTriangle {
+				0% {
+					width: 0;
+				}
+
+				90% {
+					// transform: translate(-50%, -15%) scale(0.75) rotate(360deg);
+
+					width: $border-outer-length;
+				}
+
+				100% {
+					// transform: translate(-50%, -15%) scale(0.75) rotate(360deg);
+
+					width: $border-outer-length;
+				}
+			}
+		}
+
+		p {
+			animation: iniTriangleParagraphs 1.25s forwards;
+			animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+			animation-delay: $animationDelay;
+
+			@keyframes iniTriangleParagraphs {
+				0% {
+					// transform: translateY(0);
+					opacity: 0;
+				}
+
+				90% {
+					// transform: translate(-50%, -15%) scale(0.75) rotate(360deg);
+					transform: translateY(calc(-#{$triangle-height} - #{$text-distance}));
+					opacity: 1;
+				}
+
+				100% {
+					// transform: translate(-50%, -15%) scale(0.75) rotate(360deg);
+					transform: translateY(calc(-#{$triangle-height} - #{$text-distance}));
+					opacity: 1;
+				}
+			}
+		}
+
+		.fixed-triangle {
+			&:before {
+				animation: $iniInnerTriangleAnimationParams;
+				animation-timing-function: $iniInnerTriangleAnimationTimingFunc;
+				animation-delay: $animationDelay;
+			}
+
+			&:after {
+				animation: $iniInnerTriangleAnimationParams;
+				animation-timing-function: $iniInnerTriangleAnimationTimingFunc;
+				animation-delay: $animationDelay;
+			}
+		}
+
+		.fixed-triangle--3 {
+			p {
+				// transform: translateY(calc(#{$triangle-height} + #{$text-distance}));
+
+				animation: iniTriangleParagraphSpecial 1.25s forwards;
+				animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+				animation-delay: $animationDelay;
+				@keyframes iniTriangleParagraphSpecial {
+					0% {
+						opacity: 0;
+					}
+
+					90% {
+						transform: translateY(
+							calc(#{$triangle-height} + #{$text-distance})
+						);
+						opacity: 1;
+					}
+
+					100% {
+						// transform: translate(-50%, -15%) scale(0.75) rotate(360deg);
+						transform: translateY(
+							calc(#{$triangle-height} + #{$text-distance})
+						);
+						opacity: 1;
+					}
 				}
 			}
 		}

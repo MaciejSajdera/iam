@@ -53,6 +53,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	setTimeout(() => {
 		page.classList.add("page-show");
+
+		const enviromentTriangleTrack = document.querySelector(
+			".enviroment__triangle-track"
+		);
+
+		if (enviromentTriangleTrack) {
+			enviromentTriangleTrack.classList.add(
+				"enviroment__triangle-track--initialized"
+			);
+		}
 	}, 1001);
 
 	setTimeout(() => {
