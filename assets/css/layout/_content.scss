@@ -561,12 +561,19 @@ section {
 			justify-content: center;
 			width: fit-content;
 			margin: auto;
+			transform-origin: center center;
 			transition: all 1s ease-in-out;
 			cursor: pointer;
 
 			// svg {
 			// 	transition: all 1.25s ease-in;
 			// }
+
+			&:hover {
+				transform-origin: center center;
+				transform: scale(1.2);
+				transition: all 1s ease-in-out;
+			}
 		}
 
 		text {
@@ -574,7 +581,7 @@ section {
 			text-transform: uppercase;
 			fill: #000;
 			letter-spacing: 2px;
-			transition: all 0.5s ease-in-out;
+			transition: all 0.25s ease-in-out;
 		}
 	}
 
@@ -582,13 +589,14 @@ section {
 		transform: scale(1.2);
 
 		text {
-			fill: $color__custom-red;
+			filter: invert(22%) sepia(47%) saturate(5171%) hue-rotate(345deg)
+				brightness(78%) contrast(88%);
 		}
 
 		svg {
 			animation-name: rotate;
 			animation-duration: 25s;
-			animation-iteration-count: forwards;
+			animation-iteration-count: infinite;
 			animation-timing-function: linear;
 		}
 
@@ -3844,7 +3852,7 @@ section {
 	}
 
 	&__triangle-track {
-		@media screen and (max-width: 1024px) {
+		@media screen and (max-width: 1023px) {
 			position: relative;
 			min-height: 365px;
 			transform: scale(0.75);
@@ -4443,9 +4451,9 @@ section {
 	footer {
 		padding-top: 0;
 
-		@media screen and (min-width: 992px) {
-			padding: 0;
-		}
+		// @media screen and (min-width: 992px) {
+		// 	padding: 0;
+		// }
 
 		.subscribe-info {
 			&__text,
@@ -4749,7 +4757,7 @@ section {
 				font-size: 13px;
 			}
 
-			.ajax-loader {
+			.wpcf7-spinner {
 				background-image: url(../dist/img/form-loader-dark.gif) !important;
 				background-position: center;
 				background-size: contain;
@@ -4843,6 +4851,11 @@ section {
 
 			&--data {
 				text-align: right;
+
+				a {
+					color: unset;
+					text-decoration: none;
+				}
 
 				.site-info {
 					@media screen and (min-width: 992px) {

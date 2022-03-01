@@ -6,7 +6,10 @@
   "license": "GPL",
   "main": "",
   "browserslist": [
-    "extends @wordpress/browserslist-config"
+    "last 2 version",
+    "> 1%",
+    "maintained node versions",
+    "not dead"
   ],
   "scripts": {
     "build": "npm run lint && npm run prod && npm run i18n && npm run export",

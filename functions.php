@@ -133,8 +133,8 @@ add_action( 'widgets_init', 'am_widgets_init' );
  * Enqueue scripts and styles.
  */
 function am_scripts() {
-	wp_enqueue_style( 'am-style', get_template_directory_uri() . '/dist/css/style.css', array(), '10.94');
-	wp_enqueue_script( 'am-app', get_template_directory_uri() . '/dist/js/main.js', array(), '10.94', true );
+	wp_enqueue_style( 'am-style', get_template_directory_uri() . '/dist/css/style.css', array(), '11.15');
+	wp_enqueue_script( 'am-app', get_template_directory_uri() . '/dist/js/main.js', array(), '11.15', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -170,6 +170,23 @@ function add_attribute_to_script_tag($tag, $handle) {
 	return $tag;
  }
  add_filter('script_loader_tag', 'add_attribute_to_script_tag', 10, 2);
+
+ function my_login_logo_one() { 
+	$custom_logo_id = get_theme_mod( 'custom_logo' );
+	$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+?> 
+<style type="text/css"> 
+body.login div#login h1 a {
+	background-image: url(<?php echo $image[0]; ?>);
+	width: 100%;
+	height: 100%;
+	background-size: contain;
+	padding-bottom: 30px; 
+} 
+</style>
+	<?php 
+}
+add_action( 'login_enqueue_scripts', 'my_login_logo_one' );
 
 
 /* Unregister categories so they don't show on google seach */

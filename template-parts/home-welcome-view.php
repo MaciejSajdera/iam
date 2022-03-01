@@ -46,7 +46,7 @@ $welcome_view__description = $welcome_view['description'];
         </div>
 
         <div class="welcome-view__cta-wrapper">
-            <a href="#" class="button button__cta">Read more</a>
+            <div class="button button__cta">Read more</div>
         </div>
 
     </div>

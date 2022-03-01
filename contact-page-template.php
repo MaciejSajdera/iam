@@ -36,7 +36,7 @@ $linkedin_link = get_field("linkedin_link", 74);
 					</span>
 					</h1>
 
-					<?php echo do_shortcode('[contact-form-7 id="179" title="Formularz 1"]') ?>
+					<?php echo do_shortcode('[contact-form-7 id="77" title="Contact form 1"]') ?>
 				</div>
 
 				<div class="contact__info">
@@ -61,7 +61,7 @@ $linkedin_link = get_field("linkedin_link", 74);
 							</p>
 							
 							<p class="site-info__item-content">
-								<?php echo $email_address ?>
+								<a href="mailto:<?php echo $email_address ?>"><?php echo $email_address ?></a>
 							</p>
 
 						</div>
@@ -73,7 +73,7 @@ $linkedin_link = get_field("linkedin_link", 74);
 							</p>
 
 							<p class="site-info__item-content">
-								<?php echo $phone_number ?>
+								<a href="tel:<?php echo $phone_number ?>"><?php echo $phone_number ?></a>
 							</p>
 
 						</div>
@@ -89,7 +89,6 @@ $linkedin_link = get_field("linkedin_link", 74);
 				</div>
 
 			</div>
-
 
 		</section>
 
